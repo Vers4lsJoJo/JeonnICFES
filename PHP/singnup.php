@@ -9,13 +9,17 @@ if (filter_var($correo, FILTER_VALIDATE_EMAIL)){
 
     if ($contrasena == $confirmarContrasena) {
         $sql = "INSERT INTO usuarios (name, email, pass) VALUES ('$nombre', '$correo', '$contrasena')";
+        if ($conexion->query($sql)) {
+            header("Location: ../Frontend/HTML/Signup.html?msg=exito");
+        } else {
+            header("Location: ../Frontend/HTML/Signup.html?msg=error");
+        }
     } else {
-        echo "Las contraseñas no coinciden.";
+        header("Location: ../Frontend/HTML/Signup.html?msg=no_coinciden");    
     }
 
 } else {
-    echo "El correo electrónico no es válido.";
+    header("Location: ../Frontend/HTML/Signup.html?msg=correo_invalido");    
 }
-
-echo "Registro exitoso.";
+exit;
 ?>
