@@ -201,10 +201,9 @@ body {
 }
 /*Sign Up*/
 .body-2 {
-    margin-top: 10%;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
-    background-image: url('../IMG/fondosing.png'); 
+    background:
+    url('../IMG/fondosing.png') center / cover no-repeat fixed,
+    linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
 }
 .signup-section {
   width: 100%;
@@ -276,8 +275,9 @@ body {
 .body-2 {
     margin-top: 10%;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
-    background-image: url('../IMG/fondosing.png'); 
+    background:
+    url('../IMG/fondosing.png') center / cover no-repeat fixed,
+    linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
 }
 .signup-section {
   width: 100%;
@@ -346,10 +346,9 @@ body {
 .body-3 {
     margin-top: 10%;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
-    background-image: url('../IMG/fondosing.png'); 
-}
-
+    background:
+    url('../IMG/fondosing.png') center / cover no-repeat fixed,
+    linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
 .login-section {
   width: 100%;
   max-width: 400px;
