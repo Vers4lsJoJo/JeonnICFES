@@ -539,6 +539,15 @@ function gradeQuiz() {
 
     // Calcular y mostrar puntaje
     const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+    const datos = new FormData();
+    datos.append("simulacro", "general");
+    datos.append("resultado", totalCorrect);
+    datos.append("total", totalQuestions);
+    fetch("../../PHP/simulacro.php", {
+    method: "POST",
+    body: datos
+    });
+
     scoreText.textContent = `${totalCorrect} / ${totalQuestions}`;
     percentageText.textContent = `${percentage}%`;
 

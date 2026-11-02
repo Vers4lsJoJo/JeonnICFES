@@ -6,19 +6,9 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image:
-        linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.937),
-            rgba(255, 255, 255, 0.4)
-        ),
-        url("/IMG/ChatGPT\ Image\ 8\ sept\ 2026\,\ 09_04_53\ p.m..png");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
+    background:
+    url('../IMG/fondogeneral.png') center / cover no-repeat fixed,
+    linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
  
 }
 
@@ -214,7 +204,7 @@ body {
     margin-top: 10%;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
-    background-image: url('/IMG/ChatGPT\ Image\ 3\ sept\ 2026\,\ 09_42_49\ p.m..png'); 
+    background-image: url('../IMG/fondosing.png'); 
 }
 .signup-section {
   width: 100%;
@@ -287,7 +277,7 @@ body {
     margin-top: 10%;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
-    background-image: url('/IMG/ChatGPT\ Image\ 3\ sept\ 2026\,\ 09_42_49\ p.m..png'); 
+    background-image: url('../IMG/fondosing.png'); 
 }
 .signup-section {
   width: 100%;
@@ -357,7 +347,7 @@ body {
     margin-top: 10%;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
-    background-image: url('/IMG/ChatGPT\ Image\ 3\ sept\ 2026\,\ 09_42_49\ p.m..png'); 
+    background-image: url('../IMG/fondosing.png'); 
 }
 
 .login-section {

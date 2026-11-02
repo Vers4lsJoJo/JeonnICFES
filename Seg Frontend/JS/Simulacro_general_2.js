@@ -935,6 +935,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const percentage = Math.round((correctCount / totalQuestions) * 100);
+        const datos = new FormData();
+        datos.append("simulacro", "general_2");
+        datos.append("resultado", correctCount);
+        datos.append("total", totalQuestions);
+        fetch("../../PHP/simulacro.php", {
+        method: "POST",
+        body: datos
+        });
+
 
         // Actualizar UI de Resultados
         scoreText.textContent = `${correctCount} / ${totalQuestions}`;
