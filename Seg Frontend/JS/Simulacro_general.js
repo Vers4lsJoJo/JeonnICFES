@@ -872,6 +872,15 @@ function finishQuiz() {
   const score = userAnswers.filter((ans, idx) => ans === questions[idx].respuestaCorrecta).length;
   const percentage = Math.round((score / questions.length) * 100);
 
+  const datos = new FormData();
+  datos.append("simulacro", "general_1");
+  datos.append("resultado", score);
+  datos.append("total", questions.length);
+  fetch("../../PHP/simulacro.php", {
+  method: "POST",
+  body: datos
+});
+
   document.getElementById("final-score").textContent = `${score} / ${questions.length}`;
   document.getElementById("final-percentage").textContent = `${percentage}%`;
   document.getElementById("final-time").textContent = timerEl.textContent;
