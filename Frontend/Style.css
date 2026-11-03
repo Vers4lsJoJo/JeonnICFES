@@ -349,6 +349,7 @@ body {
     background:
     url('../IMG/fondosing.png') center / cover no-repeat fixed,
     linear-gradient(135deg, #e6e9ff 0%, #f3f0ff 50%, #e8eaff 100%);
+}
 .login-section {
   width: 100%;
   max-width: 400px;
