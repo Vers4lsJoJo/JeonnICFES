@@ -2,7 +2,7 @@ const questions = [
   {
     id: 1,
     numero: "Pregunta 01 Matemáticas",
-    imagen: "/IMG/imagen-1-simulacro.png", // Puedes poner una URL de imagen aquí si la necesitas
+    imagen: "../../IMG/imagen-1-simulacro.png", // Puedes poner una URL de imagen aquí si la necesitas
     enunciado: `Cuatro cursos, cada uno con igual número de estudiantes, presentan anualmente una prueba de matemáticas. La tabla muestra el puntaje promedio obtenido por cada curso.`,
     opciones: [
       "A. Correcta, ya que el promedio de la mayoría de los cursos aumentó respecto al año anterior.",
@@ -28,7 +28,7 @@ const questions = [
   {
     id: 3,
     numero: "Pregunta 03 Matemáticas",
-    imagen: "/IMG/imagen-2-simulacro.png",
+    imagen: "../../IMG/imagen-2-simulacros.png",
     enunciado: `Las directivas de un colegio tienen que organizar un viaje a un museo con 140 estudiantes, quienes deben dividirse en 3 grupos. Cada grupo irá en una franja diferente, pero el costo total de las entradas se asumirá equitativamente por los estudiantes. En la tabla se muestran los horarios disponibles, la máxima cantidad de estudiantes y los precios respectivos de cada horario.`,
     opciones: [
       "A. Sí, porque esas franjas suman exactamente 140 estudiantes.",
@@ -42,7 +42,7 @@ const questions = [
   {
     id: 4,
     numero: "Pregunta 04 Matemáticas",
-    imagen: "/IMG/imagen-4-simulacro.png",
+    imagen: "../../IMG/imagen-4-simulacro.png",
     enunciado: `La figura muestra el portalápices de Eliécer. Él sabe que es posible colocar un caucho de 18 cm de perímetro alrededor de la base sin estirarlo, pero a medida que sube el caucho por el portalápices, este se estira hasta que, en la boca del portalápices, su perímetro es 24 cm.`,
     opciones: [
       "A. No, porque la medición se realiza con el mismo caucho y, por tanto, las áreas de la base y la boca deben ser iguales.",
@@ -56,7 +56,7 @@ const questions = [
   {
     id: 5,
     numero: "Pregunta 05 Matemáticas",
-    imagen: "/IMG/imagen-5.png",
+    imagen: "../../IMG/imagen-5.png",
     enunciado: `Los tres (3) camiones se cargan con 5 toneladas de banano cada uno para venderse en la ciudad W. El comerciante necesita conocer la ganancia al hacer este negocio, ejecutando el siguiente procedimiento:`,
     opciones: [
       "A. $ 5.670.000",
@@ -70,7 +70,7 @@ const questions = [
   {
     id: 6,
     numero: "Pregunta 06 Matemáticas",
-    imagen: "/IMG/image-6.png",
+    imagen: "../../IMG/image-6.png",
     enunciado: `Para diciembre, el comerciante decidió que por cada 5 toneladas del producto transportado en camión y vendido en alguna de las ciudades, cada uno de los dos empleados necesarios por camión recibirá un bono de 0,3 % del dinero recibido en la venta de esas 5 toneladas. En ese mes, dos empleados transportaron y vendieron 47 toneladas de mango a la ciudad W. Para hallar el bono recibido por cada uno de ellos, se ejecutó el siguiente procedimiento:`,
     opciones: [
       "A. 526.000 pesos",
@@ -100,7 +100,7 @@ const questions = [
   {
     id: 8,
     numero: "Pregunta 08 Matemáticas",
-    imagen: "/IMG/imagen-8.png",
+    imagen: "../../IMG/imagen-8.png",
     enunciado: `Las sombras proyectadas por dos postes paralelos de 10 metros y 5 metros se muestran en la figura.`,
     opciones: [
       "A. β = 5°",
@@ -130,7 +130,7 @@ const questions = [
   {
     id: 10,
     numero: "Pregunta 10 Matemáticas",
-    imagen: "/IMG/imagen-9.png",
+    imagen: "../../IMG/imagen-9.png",
     enunciado: `La longitud de las aristas de la caja de la figura son l, a y h.`,
     opciones: [
       "A.  lah",
@@ -145,7 +145,7 @@ const questions = [
   {
     id: 11,
     numero: "Pregunta 11 Lectura Crítica",
-    imagen: "/IMG/imagen-22.png",
+    imagen: "../../IMG/imagen-22.png",
     enunciado: `RESPONDE LA PREGUNTA 11 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN\n
     ¿En cuál de los siguientes contextos se inscribe mejor la caricatura?`,
     opciones: [
@@ -184,7 +184,7 @@ const questions = [
   {
     id: 13,
     numero: "Pregunta 13 Lectura Crítica",
-    imagen: "/IMG/imagen-23.png",
+    imagen: "../../IMG/imagen-23.png",
     enunciado: `RESPONDE LA PREGUNTA 13 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN\n
     Teniendo en cuenta los planteamientos dados en la historieta, ¿cuál de los siguientes enunciados contradice la tesis central del texto?`,
     opciones: [
@@ -251,7 +251,7 @@ const questions = [
   {
     id: 17,
     numero: "Pregunta 17 Lectura Crítica",
-    imagen: "/IMG/imagen-24.png",
+    imagen: "../../IMG/imagen-24.png",
     enunciado: `RESPONDE LAS PREGUNTAS 17 A 20 DE ACUERDO
                    CON LA SIGUIENTE INFORMACIÓN\n
                    De acuerdo con la información presentada sobre el porcentaje de muertes por tipo de vehículo, se puede afirmar que es más probable que alguien que haya muerto por accidente de tránsito hubiera estado desplazándose`,
@@ -356,7 +356,7 @@ const questions = [
   {
     id: 24,
     numero: "Pregunta 24 Sociales y Ciudadanas",
-    imagen :"IMG/imagen-25.png",
+    imagen :"../../IMG/imagen-25.png",
     enunciado: `Los siguientes magnicidios tuvieron incidencia en la historia política de Colombia durante el siglo XX:`,
     opciones: [
       "A. 2, 3, 1 y 4.",
@@ -454,7 +454,7 @@ const questions = [
   {
     id: 31,
     numero: "Pregunta 31 Ciencias Naturales",
-    imagen: "/IMG/imagen-26.png",
+    imagen: "../../IMG/imagen-26.png",
     enunciado: `La siguiente ecuación representa la reacción química de la formación de agua (H2O).`,
     opciones: [
       "A. H4 y O2.",
@@ -482,7 +482,7 @@ const questions = [
   {
     id: 33,
     numero: "Pregunta 33 Ciencias Naturales",
-    imagen: "/IMG/imagen-27.png",
+    imagen: "../../IMG/imagen-27.png",
     enunciado: `Un estudiante analiza cómo cambia la solubilidad de una sal de sodio; para esto, disuelve distintas cantidades de la sal en 20 gramos de agua destilada y registra la temperatura exacta a la cual se logra disolver completamente\n
     Los resultados se muestran a continuación.\n
     `,
@@ -498,7 +498,7 @@ const questions = [
   {
     id: 34,
     numero: "Pregunta 34 Ciencias Naturales",
-    imagen: "/IMG/imagen-28.png",
+    imagen: "../../IMG/imagen-28.png",
     enunciado: `En el modelo se presenta el proceso de síntesis de proteínas en una célula. `,
     opciones: [
       "A. Se produciría una cadena de ARNm doble, como la molécula de ADN.",
@@ -512,7 +512,7 @@ const questions = [
   {
     id: 35,
     numero: "Pregunta 35 Ciencias Naturales",
-    imagen: "/IMG/imagen-29.png",
+    imagen: "../../IMG/imagen-29.png",
     enunciado: `Una estudiante quiere clasificar dos sustancias de acuerdo con el tipo de mezclas que son. Al buscar, encuentra que las mezclas homogéneas son uniformes en todas sus partes, pero las mezclas heterogéneas no lo son. La estudiante realiza los procedimientos que se muestran en la tabla con las sustancias 1 y 2.`,
     opciones: [
       "A. La sustancia 1 es una mezcla homogénea y la sustancia 2 es una mezcla heterogénea",
@@ -598,7 +598,7 @@ const questions = [
   {
     id: 41,
     numero: "Pregunta 41 Inglés ",
-    imagen: "/IMG/imagen-41.png",
+    imagen: "../../IMG/imagen-41.png",
     enunciado: `Responde sugun el cartel`,
     opciones: [
       "A.on a rug ",
@@ -625,7 +625,7 @@ const questions = [
   {
     id: 43,
     numero: "Pregunta 43 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: `RESPONDE LAS PREGUNTAS 44 A 51 DE ACUERDO CON EL SIGUIENTE TEXTO`,
     opciones: [
       "A.  much",
@@ -638,7 +638,7 @@ const questions = [
   {
     id: 44,
     numero: "Pregunta 44 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: ``,
     opciones: [
       "A.  during",
@@ -651,7 +651,7 @@ const questions = [
   {
     id: 45,
     numero: "Pregunta 45 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: ``,
     opciones: [
       "A. when",
@@ -664,7 +664,7 @@ const questions = [
   {
     id: 46,
     numero: "Pregunta 46 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: ``,
     opciones: [
       "A. among",
@@ -677,7 +677,7 @@ const questions = [
   {
     id: 47,
     numero: "Pregunta 47 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: ``,
     opciones: [
       "A. describe",
@@ -690,7 +690,7 @@ const questions = [
   {
     id: 48,
     numero: "Pregunta 48 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: ``,
     opciones: [
       "A. drink",
@@ -703,7 +703,7 @@ const questions = [
    {
     id: 49,
     numero: "Pregunta 49 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: ``,
     opciones: [
       "A. mustn’t",
@@ -716,7 +716,7 @@ const questions = [
   {
     id: 50,
     numero: "Pregunta 50 Inglés",
-    imagen: "/IMG/imagen-42.png",
+    imagen: "../../IMG/imagen-42.png",
     enunciado: ``,
     opciones: [
       "A. While",
@@ -724,7 +724,6 @@ const questions = [
       "C. Because",
     ],
     respuestaCorrecta: 0,
-    
   },
   
 ];

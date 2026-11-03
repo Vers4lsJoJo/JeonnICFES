@@ -2,7 +2,7 @@ const questions = [
   {
     id: 1,
     numero: "Pregunta 1 Matemáticas",
-    imagen: "/IMG/imagen-10.png",
+    imagen: "../../IMG/imagen-10.png",
     enunciado: `Un barco navega entre dos faros, ubicados en la parte inferior de la figura.`,
     opciones: [
       "A. x = 2 sen(30º) / sen(45º)",
@@ -16,7 +16,7 @@ const questions = [
   {
     id: 2,
     numero: "Pregunta 2 Matemáticas",
-    imagen: "/IMG/imagen-11.png",
+    imagen: "../../IMG/imagen-11.png",
     enunciado: `La tabla presenta la información sobre el gasto en publicidad y las ganancias de una empresa durante los años 2020 a 2022.`,
     opciones: [
       "A. G(p) = 30p + 2.000",
@@ -30,7 +30,7 @@ const questions = [
   {
     id: 3,
     numero: "Pregunta 3 Matemáticas",
-    imagen: "/IMG/imagen-12.png",
+    imagen: "../../IMG/imagen-12.png",
     enunciado: `En una tienda se venden mesas a $ 40.000 y sillas a $ 20.000. El dueño de la tienda olvidó registrar la cantidad total de mesas y sillas que se vendieron, pero sabe que los ingresos por ventas del mes fueron de $ 1.400.000 y que se vendieron 3 veces más sillas que mesas. Para determinar la cantidad vendida de cada artículo, siendo M la cantidad de mesas y S la de sillas vendidas, representó la información con las siguientes ecuaciones:`,
     opciones: [
       "A. No, porque aunque la ecuación 1 relaciona cada precio con la variable adecuada de forma correcta, la ecuación 2 significa que se venden 3 veces más mesas que sillas.",
@@ -44,7 +44,7 @@ const questions = [
   {
     id: 4,
     numero: "Pregunta 4 Matemáticas",
-    imagen: "/IMG/imagen-13.png",
+    imagen: "../../IMG/imagen-13.png",
     enunciado: `La línea punteada en la figura muestra un corte realizado a un triángulo. El corte es paralelo a la base y corta por la mitad a la altura, h, que es perpendicular a la base.`,
     opciones: [
       "A. 85 cm.",
@@ -58,7 +58,7 @@ const questions = [
   {
     id: 5,
     numero: "Pregunta 5 Matemáticas",
-    imagen: "/IMG/imagen-14.png",
+    imagen: "../../IMG/imagen-14.png",
     enunciado: `Un cartabón es una plantilla que se utiliza en dibujo técnico y que tiene forma de triángulo rectángulo escaleno, de modo que su hipotenusa mide el doble del cateto de menor longitud.`,
     opciones: [
       "A. 16 cm.",
@@ -87,7 +87,7 @@ const questions = [
   {
     id: 7,
     numero: "Pregunta 7 Matemáticas",
-    imagen: "/IMG/imagen-15.png",
+    imagen: "../../IMG/imagen-15.png",
     enunciado: `A continuación, se muestran los resultados de una encuesta que indagó sobre el parque automotor del transporte intermunicipal en Colombia.`,
     opciones: [
       "A. La mayor parte del parque automotor son automóviles, camionetas y camperos.",
@@ -116,7 +116,7 @@ const questions = [
   {
     id: 9,
     numero: "Pregunta 9 Matemáticas",
-    imagen: "/IMG/imagen-16.png",
+    imagen: "../../IMG/imagen-16.png",
     enunciado: `En una institución educativa hay dos cursos en grado undécimo. El número de hombres y mujeres de cada curso se relaciona en la tabla:`,
     opciones: [
       "A. El número total de estudiantes de grado undécimo",
@@ -131,7 +131,7 @@ const questions = [
   {
     id: 10,
     numero: "Pregunta 10 Matemáticas",
-    imagen: "/IMG/imagen-17.png",
+    imagen: "../../IMG/imagen-17.png",
     enunciado: `En la tabla se presentan las cartas que conforman una baraja de póquer.`,
     opciones: [
       "A. Ser una carta negra y ser un número par.",
@@ -146,7 +146,7 @@ const questions = [
   {
     id: 11,
     numero: "Pregunta 11 Matemáticas",
-    imagen: "/IMG/imagen-18.png",
+    imagen: "../../IMG/imagen-18.png",
     enunciado: `Un profesor de Matemáticas les pide a sus estudiantes solucionar la siguiente ecuación: \n \n(x + 2)(x + 3) = 5(x + 3). \n\nMaría, Nelson y Óscar realizan, cada uno, los siguientes procedimientos:`,
     opciones: [
       "A. Solo Nelson y Óscar.",
@@ -289,7 +289,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 20,
     numero: "Pregunta 20 Lectura Crítica",
-    imagen: "/IMG/imagen-19.png",
+    imagen: "../../IMG/imagen-19.png",
     enunciado: `RESPONDE LAS PREGUNTAS 20 A 22 DE ACUERDO CON EL SIGUIENTE CONTEXTO \n
     De acuerdo con la infografía, ¿en qué momento se requiere efectuar una reanimación cardíaca?
     `,
@@ -369,7 +369,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 25,
     numero: "Pregunta 25 Lectura Crítica",
-    imagen: "/IMG/imagen-20.png",
+    imagen: "../../IMG/imagen-20.png",
     enunciado: `RESPONDE LA PREGUNTA 25 DE ACUERDO 
     CON LA SIGUIENTE INFORMACIÓN\n
     En la historieta, el niño intenta justificar el alto precio de la limonada recurriendo a:`,
@@ -385,7 +385,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 26,
     numero: "Pregunta 26 Lectura Crítica",
-   imagen: "/IMG/imagen-21.png",
+   imagen: "../../IMG/imagen-21.png",
     enunciado: `RESPONDE LA PREGUNTA 26 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN\n
     ¿Cuál de los siguientes enunciados describe mejor la caricatura?`,
     opciones: [
@@ -635,7 +635,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 43,
     numero: "Pregunta 43 Ciencias Naturales",
-    imagen: "/IMG/imagen-30.png",
+    imagen: "../../IMG/imagen-30.png",
     enunciado: `A partir de las cadenas de ARN mensajero se forman las proteínas. En este proceso, por cada tres nucleótidos consecutivos de ARN mensajero se codifica un aminoácido. A continuación, se muestra una secuencia de ARN mensajero.`,
     opciones: [
       "A. 8",
@@ -649,7 +649,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 44,
     numero: "Pregunta 44 Ciencias Naturales",
-    imagen: "/IMG/imagen-31.png",
+    imagen: "../../IMG/imagen-31.png",
     enunciado: `El salto bungee es un deporte que se practica generalmente en puentes, como se muestra a continuación.`,
     opciones: [
       "A. De energía cinética a potencial elástica.",
@@ -663,7 +663,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 45,
     numero: "Pregunta 45 Ciencias Naturales",
-    imagen: "/IMG/imagen-32.png",
+    imagen: "../../IMG/imagen-32.png",
     enunciado: `Considere la siguiente reacción y las masas molares de reactivos y productos:`,
     opciones: [
       "A. El Cl2, porque reaccionan en su totalidad 210 gramos de Cl2 y queda la mitad de P4 sin reaccionar.",
@@ -677,7 +677,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 46,
     numero: "Pregunta 46 Ciencias Naturales",
-    imagen: "/IMG/imagen-33.png",
+    imagen: "../../IMG/imagen-33.png",
     enunciado: `En un metal que pierde electrones, la cantidad de protones es mayor que la de electrones y, por tanto, la carga total es positiva y se representa con signos +.\n
     Se tienen dos esferas metálicas idénticas: una esfera (1) inicialmente con carga + Q y otra esfera (2) inicialmente neutra. Al ponerlas en contacto y luego separarlas, se observa que las dos esferas quedan con cargas iguales + Q/2, como muestra la figura.\n
     `,
@@ -693,7 +693,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 47,
     numero: "Pregunta 47 Ciencias Naturales",
-    imagen: "/IMG/imagen-34.png",
+    imagen: "../../IMG/imagen-34.png",
     enunciado: `Un grupo de científicos aisló cepas de la bacteria Streptococcus pneumoniae obtenidas en pacientes enfermos de neumonía, las cultivaron con diferentes antibióticos de prueba y midieron el porcentaje de supervivencia de las cepas. La tabla muestra los resultados.`,
     opciones: [
       "A. A los enfermos de neumonía no deberían recetarles antibióticos, porque la supervivencia de las bacterias es mínima.",
@@ -721,7 +721,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 49,
     numero: "Pregunta 49 Ciencias Naturales",
-    imagen: "/IMG/imagen-35.png",
+    imagen: "../../IMG/imagen-35.png",
     enunciado: `En la tabla se muestra la configuración electrónica de un átomo neutro y de un ion de aluminio.`,
     opciones: [
       "A.  Porque el último nivel de energía de su configuración electrónica es 3.",
@@ -735,7 +735,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
    {
     id: 50,
     numero: "Pregunta 50 Ciencias Naturales",
-    imagen: "/IMG/imagen-36.png",
+    imagen: "../../IMG/imagen-36.png",
     enunciado: `En tres instantes diferentes, un estudiante dibuja el diagrama de cuerpo libre para una piedra que cae en un estanque de agua, como se muestra en la siguiente figura`,
     opciones: [
       "A. Mayor que la del primer instante, porque el peso hace que la piedra se acelere hacia abajo",
@@ -749,7 +749,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 51,
     numero: "Pregunta 51 Ciencias Naturales",
-    imagen: "/IMG/imagen-37.png",
+    imagen: "../../IMG/imagen-37.png",
     enunciado: `Un estudiante sopla una pelota por un tubo vertical y esta sube aceleradamente por el tubo, como se muestra en la siguiente figura:`,
     opciones: [
       "A. Porque el peso de la pelota cambia cuando el estudiante sopla aire por el tubo.",
@@ -763,7 +763,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 52,
     numero: "Pregunta 52 Ciencias Naturales",
-    imagen: "/IMG/imagen-38.png",
+    imagen: "../../IMG/imagen-38.png",
     enunciado: `La conductividad de una disolución es la capacidad que tiene esta para conducir la corriente eléctrica. Un estudiante realiza una serie de experimentos para estudiar la conductividad del sulfato de magnesio (MgSO4) disuelto en agua, y obtiene los siguientes resultados:`,
     opciones: [
       "A. La influencia de la temperatura sobre la conductividad",
@@ -777,7 +777,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 53,
     numero: "Pregunta 53 Ciencias Naturales",
-    imagen: "/IMG/imagen-39.png",
+    imagen: "../../IMG/imagen-39.png",
     enunciado: `Una estudiante desea conocer las proteínas presentes en la sangre. Para ello, emplea una técnica que las separa de acuerdo con su peso molecular y produce una respuesta en diferentes instantes de tiempo cada vez que una proteína es detectada.\n
     Ella obtiene los resultados mostrados en la siguiente gráfica, en donde cada pico representa una proteína diferente.`,
     opciones: [
@@ -806,7 +806,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 55,
     numero: "Pregunta 55 Ciencias Naturales",
-    imagen: "/IMG/imagen-40.png",
+    imagen: "../../IMG/imagen-40.png",
     enunciado: `a estudiante realiza diferentes ensayos con el objetivo de determinar el efecto de laconcentración de los reactivos sobre la velocidad de formación de Z en la reacción X + Y → Z. En cada ensayo mide la velocidad de formación de Z manteniendo constante la concentración de uno de los reactivos y variando la del otro, como se muestra en las siguientes gráficas:`,
     opciones: [
       "A.  El cambio de la velocidad de formación de Z no depende de la concentración de los reactivos.",
@@ -833,7 +833,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 57,
     numero: "Pregunta 57 Inglés",
-    imagen: "/IMG/imagen-43.png",
+    imagen: "../../IMG/imagen-43.png",
     enunciado: `Responde segun el texto, las preguntas 57 a 63\n
     James Salter played an important part in the making of movies`,
     opciones: [
@@ -847,7 +847,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 58,
     numero: "Pregunta 58 Inglés",
-    imagen: "/IMG/imagen-43.png",
+    imagen: "../../IMG/imagen-43.png",
     enunciado: ` Passionate Falsehoods is`,
     opciones: [
       "A. a newspaper",
@@ -861,7 +861,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 59,
     numero: "Pregunta 59 Inglés",
-    imagen: "/IMG/imagen-43.png",
+    imagen: "../../IMG/imagen-43.png",
     enunciado: `Salter had nice and difficult times when he was`,
     opciones: [
       "A. an actor.",
@@ -874,7 +874,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 60,
     numero: "Pregunta 60 Inglés",
-    imagen: "/IMG/imagen-43.png",
+    imagen: "../../IMG/imagen-43.png",
     enunciado: `The Last Book was written by`,
     opciones: [
       "A. James Salter.",
@@ -887,7 +887,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
    {
     id: 61,
     numero: "Pregunta 61 Inglés",
-    imagen: "/IMG/imagen-43.png",
+    imagen: "../../IMG/imagen-43.png",
     enunciado: `James Salter thinks that his work in the cinema business was`,
     opciones: [
       "A.not useful. ",
@@ -900,7 +900,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 62,
     numero: "Pregunta 62 Inglés",
-    imagen: "/IMG/imagen-43.png",
+    imagen: "../../IMG/imagen-43.png",
     enunciado: `Reading about James Salter’s years in the cinema could be`,
     opciones: [
       "A. clever enough.",
@@ -914,7 +914,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 63,
     numero: "Pregunta 63 Inglés",
-    imagen: "/IMG/imagen-43.png",
+    imagen: "../../IMG/imagen-43.png",
     enunciado: `The Last Book can be found`,
     opciones: [
       "A.in museums. ",
@@ -927,7 +927,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 64,
     numero: "Pregunta 64 Inglés",
-    imagen: "/IMG/imagen-45.png",
+    imagen: "../../IMG/imagen-45.png",
     enunciado: `Responde segun el cartel`,
     opciones: [
       "A. on a plane",
@@ -940,7 +940,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 65,
     numero: "Pregunta 65 Inglés",
-    imagen: "/IMG/imagen-46.png",
+    imagen: "../../IMG/imagen-46.png",
     enunciado: `Responde segun el cartel`,
     opciones: [
       "A. in a house",
@@ -953,7 +953,7 @@ En el último párrafo del texto, se utiliza la expresión "pajarito famélico" 
   {
     id: 66,
     numero: "Pregunta 66 Inglés",
-    imagen: "/IMG/imagen-47.png",
+    imagen: "../../IMG/imagen-47.png",
     enunciado: `Responde segun el cartel`,
     opciones: [
       "A. on a stool",

@@ -31,7 +31,7 @@ body {
             rgba(255, 255, 255, 0.447),
             rgba(255, 255, 255, 0.201)
         ),
-        url("/IMG/Fondo\ Azul\ Minimalista\ para\ Estudiar.png");
+        url("../../IMG/fondo_simulacro.png");
   padding: 20px;
   background-size: cover;
     background-position: center;
