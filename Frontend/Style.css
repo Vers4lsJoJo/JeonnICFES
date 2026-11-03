@@ -487,13 +487,25 @@ body {
     font-size: 15px; 
 }
 
-.cuadrado-verde {
-    background-color: rgba(18, 205, 56, 0.614);
-    width: 40px;
+.close-session {
+    width: 150px;
     height: 40px;
-    border-radius: 20%;
-    transform: translateY(-22%);
-    margin-left: 70%; 
+    background-color: #16ba0037;
+    border: 0.3px solid transparent;
+    border-radius: 10px;
+    margin-left: 65%;
+    margin-top: -2%;
+    font-weight: 600;
+
+    position: relative;
+    z-index: 10;
+    display: block;
+    cursor: pointer;
+}
+
+.close-session:hover {
+    background-color: #16ba0080;
+    border: 1px solid black;
 }
 
 .p-10 {

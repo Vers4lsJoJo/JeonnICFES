@@ -18,8 +18,16 @@ switch (msg) {
         alerta.textContent = "El correo electrónico no es válido";
         alerta.className = "alerta-email";
         break;
-
-    
-
-
+    case "Sesión_cerrada":
+        alerta.textContent = "Sesión cerrada exitosamente";
+        alerta.className = "alerta-exito";
+        break;
+    case "nicio_exi":
+        alerta.textContent = "Inicio de sesión exitoso";
+        alerta.className = "alerta-exito";
+        break;
+    case "mal":
+        alerta.textContent = "Usuario o contraseña incorrectos";
+        alerta.className = "alerta-error";
+        break;
 }
