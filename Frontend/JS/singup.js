@@ -30,4 +30,8 @@ switch (msg) {
         alerta.textContent = "Usuario o contraseña incorrectos";
         alerta.className = "alerta-error";
         break;
+    case "pass_corta":
+        alerta.textContent = "La contraseña debe tener mínimo 8 caracteres";
+        alerta.className = "alerta-pass";
+        break;
 }

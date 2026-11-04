@@ -1,131 +1,228 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 16px;
+    background: linear-gradient(135deg, #fff8dc 0%, #e6f2ff 55%, #d3e6ff 100%);
     font-family: Arial, Helvetica, sans-serif;
-    background-image:linear-gradient(
-            to bottom,
-            rgba(253, 252, 223, 0.141),
-            rgba(252, 251, 221, 0.141)
-        ),url("/IMG/Gemini_Generated_Image_sev4r6sev4r6sev4\ \(1\).jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
-.nav-bar {
+.user,
+.Introduccion,
+main {
+    position: static;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 0;
+    padding: 24px 28px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+main::before {
+    content: "Mi cuenta";
+    display: block;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+}
+
+.user {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    column-gap: 20px;
+    align-items: center;
+    border-top: 6px solid rgb(86, 0, 147);
+}
+
+.user h1 {
+    grid-column: 2;
+    grid-row: 1;
+    position: static;
+    margin: 0;
+    font-size: 28px;
+    color: #1a1a1a;
+}
+
+.imagen-user {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    position: static;
     display: flex;
     align-items: center;
-    padding: 0 30px;
-    width: 32%;
-    height: 60px;
-    border-radius: 50px; 
-    border: 1px solid #eeeeee;
-    margin: 15px;
-    margin-left: 32.5%;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.107);
-    top: 10px;
-    background-color: white;
-    position: relative;
-    top: -5rem;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    margin: 0;
+    border-radius: 50%;
+    background: #f1e0ff;
 }
 
-.nav-link {
-    display: flex;
-    list-style: none;
-    gap: 3rem;
-    margin-left: 2%;
-    font-size: 20px;
+.diploma {
+    position: static;
+    width: 44px;
+    height: 44px;
+    margin: 0;
 }
 
-.nav-bar a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
+.Nivel-ICFES {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    position: static;
+    margin: 6px 0 0;
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: #f1e0ff;
 }
 
-.nav-link a.active {
+.Nivel-ICFES h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
     color: rgb(86, 0, 147);
-    cursor: pointer;
+}
+
+.Introduccion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.Introduccion h2 {
+    flex: 1 0 100%;
+    position: static;
+    margin: 0 0 4px;
+    font-size: 22px;
+    color: #222;
+}
+
+.Introduccion a {
+    flex: 1;
     text-decoration: none;
+}
+
+.btn-practicas,
+.btn-simulacros {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 52px;
+    margin: 0;
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 16px;
     font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.footer-mced {
-  background-color: #f7f9fc;
-  color: #555;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 60px;
-  font-family: 'Poppins', sans-serif;
-  border-top: 1px solid #e0e0e0;
-  flex-wrap: wrap;
-  margin-top: 10%;
+.btn-practicas { background: #16ba00; }
+.btn-simulacros { background: #c07af0; }
+
+.btn-practicas:hover,
+.btn-simulacros:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
-
-.footer-left h3 {
-  color: #1a237e;
-  font-weight: 700;
-  margin-right: 20px;
-  border-right: 1px solid #ccc;
-  padding-right: 20px;
+.libro,
+.Circular {
+    position: static;
+    width: 24px;
+    height: 24px;
+    margin: 0;
 }
 
-.footer-center {
-  flex: 1;
-  text-align: left;
+.btn-simulacros .p-4 {
+    position: static;
+    margin: 0;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
-.footer-links a {
-  margin-right: 20px;
-  color: #555;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+.form-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.footer-links a:hover {
-  color: #6c63ff;
+.form-perfil label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
 }
 
-.footer-center p {
-  font-size: 14px;
-  color: #777;
-  margin-top: 10px;
+.form-perfil input {
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.footer-right {
-  text-align: right;
+.form-perfil input:focus {
+    border-color: rgb(86, 0, 147);
+    box-shadow: 0 0 0 3px rgba(86, 0, 147, 0.15);
 }
 
-.footer-right p {
-  font-size: 14px;
-  margin-top: 8px;
+.btn-guardar {
+    height: 46px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 12px;
+    background: rgb(86, 0, 147);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-
-.footer-social {
-  display: flex;
-  gap: 10px;
-  margin-right:  20%;
-    transition: transform 9s ease, box-shadow 0.3s ease;
+.btn-guardar:hover {
+    background: #6f12b3;
+    transform: translateY(-2px);
 }
 
-
-.footer-social a {
-  display: flex;
-  justify-content: center;
+.form-eliminar {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
 }
 
-/* Efecto al pasar el cursor */
-.footer-social a:hover {
-  transform: translateY(-5px);
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+.btn-eliminar {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #d32f2f;
+    border-radius: 12px;
+    background: #fff;
+    color: #d32f2f;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
+.btn-eliminar:hover {
+    background: #d32f2f;
+    color: #fff;
+}
+
+@media (max-width: 520px) {
+    .Introduccion a { flex: 1 0 100%; }
+}

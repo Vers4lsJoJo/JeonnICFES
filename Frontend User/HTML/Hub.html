@@ -5,24 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeonn ICFES | Perfil</title>
     <link rel="stylesheet" href="../../Frontend User/Style.css">
-    <link rel="stylesheet" href="../../Frontend User/CSS/Hub.css">
 </head>
 <body>
     <section class="user">
         <h1 id="nombre">Name User</h1>
         <div class="imagen-user"><img src="../../IMG/icons8-diploma-60 1.png" alt="" class="diploma"></div>
-        <div class="Nivel-ICFES"><h3 class="p-2">Nivel ICFES:</h3></div>
+    <div class="Nivel-ICFES"><h3 class="p-2" id="nivel">Nivel ICFES:</h3></div>
     </section>
 
     <section class="Introduccion">
-        <h2 class="p-3">Hola, [Usuario]</h2>
-        <a href="../../Frontend/HTML/Modulos.html"><button class="btn-practicas"><img src="../../IMG/libro 2.png" alt="" class="libro">Practicar</button></a>
+    <h2 class="p-3" id="saludo">Hola, [Usuario]</h2>        <a href="../../Frontend/HTML/Modulos.html"><button class="btn-practicas"><img src="../../IMG/libro 2.png" alt="" class="libro">Practicar</button></a>
         <a href="../../Frontend/HTML/Simulacros.html"><button class="btn-simulacros"><img src="../../IMG/icons8-circular-48 2.png" alt="" class="Circular"><p class="p-4">Simulacro</p></button></a>
     </section>
-    <main>  
+    <main> 
+    <form class="form-perfil" action="../../PHP/actualizar.php" method="POST">
+    <label for="campo-nombre">Nombre</label>
+    <input type="text" name="name" id="campo-nombre" required>
+
+    <label for="campo-email">Correo</label>
+    <input type="email" name="email" id="campo-email" required>
+
+    <button type="submit" class="btn-guardar">Guardar cambios</button>
+    </form>
+
+    <form class="form-eliminar" action="../../PHP/eliminar.php" method="POST"
+      onsubmit="return confirm('¿Seguro? Se borrará tu cuenta y todos tus simulacros.')">
+    <button type="submit" class="btn-eliminar">Eliminar cuenta</button>
+    </form>
     </main>
     <script>
-        
+        fetch("../../PHP/perfil.php")
+    .then(res => res.json())
+    .then(d => {
+        if (d.error) {
+            window.location.href = "../../Frontend/HTML/Login.html";
+            return;
+        }
+        document.getElementById("nombre").textContent = d.name;
+        document.getElementById("saludo").textContent = "Hola, " + d.name;
+        document.getElementById("campo-nombre").value = d.name;
+        document.getElementById("campo-email").value = d.email;
+        document.getElementById("nivel").textContent = "Nivel ICFES: " + d.nivel;
+    })
+    .catch(err => console.error("Error al cargar perfil:", err));
     </script>
 </body>
 </html>
