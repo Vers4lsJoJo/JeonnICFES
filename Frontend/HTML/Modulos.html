@@ -103,8 +103,8 @@
 
         <section class="parte_hub">
             <div class="barra-morada_1"></div>
-            <div class="perfil">Perfil</div>
-            <h2 class="p-34">Hola [Usuario] </h2>
+            <div class="perfil">Perfil</div>      
+                <h2 class="p-34" id="nombre">[Usuario] </h2>
                 <p class="p-35">Esta es tu pagina para medir tu puntaje y llevar un historial de us resultados</p>
                 <h6 class="p-36">Vas por buen camino</h6>
                 <a href="../../Frontend User/HTML/Hub.html"><button class="continuar-1">continuar</button></a>
@@ -161,11 +161,25 @@
         .then((datos) => {
           document.getElementById("num-proceso").textContent = datos.en_proceso;
           document.getElementById("num-completos").textContent =
+
             datos.completos;
+
+                    fetch("../../PHP/perfil.php")
+    .then(res => res.json())
+    .then(d => {
+        if (d.error) {
+            window.location.href = "../../Frontend/HTML/Login.html";
+            return;
+        }
+        document.getElementById("nombre").textContent = "Hola " + d.name;
+    })
+    .catch(err => console.error("Error al cargar perfil:", err));
+
         })
         .catch((err) => console.error("Error al cargar simulacros:", err));
     </script>
   </body>
+
 
 </body>
 </html>

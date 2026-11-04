@@ -96,7 +96,7 @@
       <section class="parte_hub">
         <div class="barra-morada_1"></div>
         <div class="perfil">Perfil</div>
-        <h2 class="p-34">Hola [Usuario]</h2>
+        <h2 class="p-34" id="nombre">[Usuario] </h2>
         <p class="p-35">
           Esta es tu pagina para medir tu puntaje y llevar un historial de us
           resultados
@@ -176,6 +176,17 @@
             datos.completos;
         })
         .catch((err) => console.error("Error al cargar simulacros:", err));
+        
+      fetch("../../PHP/perfil.php")
+    .then(res => res.json())
+    .then(d => {
+      if (d.error) {
+        window.location.href = "../../Frontend/HTML/Login.html";
+        return;
+      }
+      document.getElementById("nombre").textContent = "Hola " + d.name;
+    })
+    .catch(err => console.error("Error al cargar perfil:", err));
     </script>
   </body>
 </html>
