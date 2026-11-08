@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrador | Jeonn Icfes</title>
+
+    <link rel="stylesheet" href="/Frontend User/CSS/Admin.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">J</div>
+
+                <div>
+                    <h2>Jeonn</h2>
+                    <span>ICFES ADMIN</span>
+                </div>
+            </div>
+
+            <p class="menu-titulo">MENÚ PRINCIPAL</p>
+
+            <nav class="menu">
+
+                <button class="nav-link activo" data-seccion="inicio">
+                    <span>▦</span> Resumen
+                </button>
+
+                <button class="nav-link" data-seccion="modulos">
+                    <span>▤</span> Módulos y temas
+                </button>
+
+                <button class="nav-link" data-seccion="usuarios">
+                    <span>♙</span> Usuarios
+                </button>
+
+                <button class="nav-link" data-seccion="sitio">
+                    <span>⚙</span> Información del sitio
+                </button>
+                <a href="../index.html"><button class="nav-link" data-seccion="Jeonn">
+                    <span>←</span> Regresar a Jeonn Icfes
+                </button></a>
+
+            </nav>
+
+            <div class="perfil-admin">
+                <div class="avatar">AD</div>
+
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Panel de control</small>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <header class="topbar">
+
+                <button id="menuToggle" class="menu-toggle">☰</button>
+
+                <div class="ubicacion">
+                    Jeonn Icfes / <strong id="nombreSeccion">Resumen</strong>
+                </div>
+
+                <span class="estado">
+                    ● Panel administrativo
+                </span>
+
+            </header>
+
+            <div class="contenido-pagina">
+
+                <!-- RESUMEN -->
+                <section class="seccion activa" id="inicio">
+
+                    <p class="etiqueta">CENTRO DE CONTROL</p>
+
+                    <h1>¡Hola, administrador! 👋</h1>
+
+                    <p class="descripcion">
+                        Gestiona los contenidos, usuarios e información de Jeonn Icfes.
+                    </p>
+
+                    <div class="estadisticas">
+
+                        <div class="tarjeta">
+                            <span>Temas publicados</span>
+                            <h2 id="totalTemas">0</h2>
+                            <small>En todos los módulos</small>
+                        </div>
+
+                        <div class="tarjeta">
+                            <span>Usuarios activos</span>
+                            <h2 id="totalUsuarios">0</h2>
+                            <small>Cuentas registradas</small>
+                        </div>
+
+                        <div class="tarjeta">
+                            <span>Módulos</span>
+                            <h2>5</h2>
+                            <small>Áreas de aprendizaje</small>
+                        </div>
+
+                    </div>
+
+                    <div class="panel">
+
+                        <h2>Accesos rápidos</h2>
+
+                        <button class="acceso-rapido" data-ir="modulos">
+                            <span>＋</span>
+                            <div>
+                                <strong>Agregar un tema</strong>
+                                <small>Publica contenido en un módulo.</small>
+                            </div>
+                        </button>
+
+                        <button class="acceso-rapido" data-ir="sitio">
+                            <span>✎</span>
+                            <div>
+                                <strong>Actualizar información</strong>
+                                <small>Modifica los datos de Jeonn.</small>
+                            </div>
+                        </button>
+
+                        <button class="acceso-rapido" data-ir="usuarios">
+                            <span>♙</span>
+                            <div>
+                                <strong>Administrar usuarios</strong>
+                                <small>Gestiona las cuentas registradas.</small>
+                            </div>
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- MÓDULOS Y TEMAS -->
+                <section class="seccion" id="modulos">
+
+                    <p class="etiqueta">CONTENIDO ACADÉMICO</p>
+
+                    <h1>Módulos y temas</h1>
+
+                    <p class="descripcion">
+                        Agrega nuevos temas para los estudiantes de Jeonn Icfes.
+                    </p>
+
+                    <div class="panel">
+
+                        <h2>Publicar nuevo tema</h2>
+
+                        <form id="formTema">
+
+                            <label for="tituloTema">Nombre del tema</label>
+
+                            <input
+                                type="text"
+                                id="tituloTema"
+                                placeholder="Ej. Porcentajes"
+                                required
+                            >
+
+                            <label for="moduloTema">Seleccionar módulo</label>
+
+                            <select id="moduloTema" required>
+
+                                <option value="">Selecciona un módulo</option>
+
+                                <option value="Matemáticas">Matemáticas</option>
+
+                                <option value="Lectura Crítica">Lectura Crítica</option>
+
+                                <option value="Ciencias Naturales">Ciencias Naturales</option>
+
+                                <option value="Sociales y Ciudadanas">Sociales y Ciudadanas</option>
+
+                                <option value="Inglés">Inglés</option>
+
+                            </select>
+
+                            <label for="descripcionTema">Descripción del tema</label>
+
+                            <textarea
+                                id="descripcionTema"
+                                rows="4"
+                                placeholder="Escribe qué aprenderán los estudiantes..."
+                                required
+                            ></textarea>
+
+                            <label for="archivoTema">Archivo de apoyo (opcional)</label>
+
+                            <input
+                                type="file"
+                                id="archivoTema"
+                                accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg"
+                            >
+
+                            <small class="ayuda">
+                                Puedes seleccionar documentos, presentaciones o imágenes.
+                            </small>
+
+                            <button type="submit" class="btn-principal">
+                                + Publicar tema
+                            </button>
+
+                            <p id="mensajeTema" class="mensaje"></p>
+
+                        </form>
+
+                    </div>
+
+                    <div class="panel">
+
+                        <div class="titulo-listado">
+                            <h2>Temas registrados</h2>
+
+                            <span id="cantidadTemas">0</span>
+                        </div>
+
+                        <div id="listaTemas"></div>
+
+                    </div>
+
+                </section>
+
+                <!-- USUARIOS -->
+                <section class="seccion" id="usuarios">
+
+                    <p class="etiqueta">GESTIÓN DE CUENTAS</p>
+
+                    <h1>Usuarios registrados</h1>
+
+                    <p class="descripcion">
+                        Consulta y administra los usuarios de Jeonn Icfes.
+                    </p>
+
+                    <div class="panel">
+
+                        <div class="usuarios-header">
+
+                            <h2>Lista de usuarios</h2>
+
+                            <input
+                                type="search"
+                                id="buscarUsuario"
+                                placeholder="Buscar usuario..."
+                            >
+
+                        </div>
+
+                        <div class="tabla-contenedor">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Correo</th>
+                                        <th>Rol</th>
+                                        <th>Estado</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tablaUsuarios"></tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- INFORMACIÓN DEL SITIO -->
+                <section class="seccion" id="sitio">
+
+                    <p class="etiqueta">PERSONALIZACIÓN</p>
+
+                    <h1>Información del sitio</h1>
+
+                    <p class="descripcion">
+                        Actualiza la información general de Jeonn Icfes.
+                    </p>
+
+                    <div class="panel">
+
+                        <h2>Datos generales</h2>
+
+                        <form id="formSitio">
+
+                            <label for="nombreSitio">Nombre del sitio</label>
+
+                            <input
+                                type="text"
+                                id="nombreSitio"
+                                required
+                            >
+
+                            <label for="fraseSitio">Frase principal</label>
+
+                            <input
+                                type="text"
+                                id="fraseSitio"
+                                required
+                            >
+
+                            <label for="descripcionSitio">Descripción</label>
+
+                            <textarea
+                                id="descripcionSitio"
+                                rows="5"
+                                required
+                            ></textarea>
+
+                            <label for="correoSitio">Correo de contacto</label>
+
+                            <input
+                                type="email"
+                                id="correoSitio"
+                            >
+
+                            <button type="submit" class="btn-principal">
+                                Guardar cambios
+                            </button>
+
+                            <p id="mensajeSitio" class="mensaje"></p>
+
+                        </form>
+
+                    </div>
+
+                    <div class="panel vista-previa">
+
+                        <p class="etiqueta">VISTA PREVIA</p>
+
+                        <h2 id="previewNombre">Jeonn Icfes</h2>
+
+                        <h3 id="previewFrase">Aprende, practica y alcanza tus metas.</h3>
+
+                        <p id="previewDescripcion"></p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            
+
+        </main>
+
+    </div>
+
+    <!-- VENTANA DE CONFIRMACIÓN -->
+    <div class="modal" id="modalConfirmacion">
+
+        <div class="modal-contenido">
+
+            <h2>¿Retirar acceso?</h2>
+
+            <p id="mensajeConfirmacion">
+                ¿Estás seguro de que deseas retirar el acceso a este usuario?
+            </p>
+
+            <div class="modal-botones">
+
+                <button id="cancelarRetiro" class="btn-secundario">
+                    Cancelar
+                </button>
+
+                <button id="confirmarRetiro" class="btn-eliminar">
+                    Retirar acceso
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+
+    <script src="/Frontend User/JS/Admin.js"></script>
+
+</body>
+</html>
