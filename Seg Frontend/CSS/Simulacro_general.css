@@ -453,6 +453,22 @@ body {
   margin-top: 8px;
 }
 
+.option-btn {
+    background-color: white;
+    border: 2px solid #dce3ec;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Opción seleccionada */
+.option-btn.selected {
+    background-color: #dceeff;
+    border: 2px solid #3182ce;
+    color: #1e4e8c;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(49, 130, 206, 0.2);
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }

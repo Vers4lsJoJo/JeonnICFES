@@ -769,13 +769,15 @@ function renderAllQuestions() {
     const card = document.createElement("div");
     card.className = "question-card";
 
-    // Encabezado de la pregunta
+    // Encabezado
     const header = document.createElement("div");
     header.className = "question-header";
-    header.innerHTML = `<span class="question-number">${q.numero}</span>`;
+    header.innerHTML = `
+      <span class="question-number">${q.numero}</span>
+    `;
     card.appendChild(header);
 
-    // Texto de la pregunta
+    // Enunciado
     const text = document.createElement("p");
     text.className = "question-text";
     text.textContent = q.enunciado;
@@ -785,56 +787,51 @@ function renderAllQuestions() {
     if (q.imagen) {
       const imgBox = document.createElement("div");
       imgBox.className = "image-container";
-      imgBox.innerHTML = `<img src="${q.imagen}" alt="Imagen de pregunta">`;
+
+      const img = document.createElement("img");
+      img.src = q.imagen;
+      img.alt = "Imagen de pregunta";
+
+      imgBox.appendChild(img);
       card.appendChild(imgBox);
     }
 
-    // Contenedor de opciones
+    // Opciones
     const optionsDiv = document.createElement("div");
     optionsDiv.className = "options-grid";
 
     q.opciones.forEach((opcion, optIndex) => {
-      const btn = document.createElement("button");
-      btn.className = "option-btn";
 
-      const letter = opcion.substring(0, 2);
-      const optText = opcion.substring(3);
-      btn.innerHTML = `<span class="option-letter">${letter}</span><span>${optText}</span>`;
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
 
-      // Si ya fue respondida o el examen terminó
-      if (userAnswers[qIndex] !== null) {
-        btn.disabled = true;
-        if (optIndex === q.respuestaCorrecta) {
-          btn.classList.add("correct");
-        }
-        if (userAnswers[qIndex] === optIndex && optIndex !== q.respuestaCorrecta) {
-          btn.classList.add("incorrect");
-        }
-      } else if (isFinished) {
-        btn.disabled = true;
-      } else {
-        btn.addEventListener("click", () => handleSelectOption(qIndex, optIndex));
-      }
+    const letter = opcion.substring(0, 2);
+    const optText = opcion.substring(3);
 
-      optionsDiv.appendChild(btn);
-    });
-    card.appendChild(optionsDiv);
+    btn.innerHTML = `
+        <span class="option-letter">${letter}</span>
+        <span>${optText}</span>
+    `;
 
-    // Si ya respondió esta pregunta, mostrar su retroalimentación debajo de las opciones
-    if (userAnswers[qIndex] !== null) {
-      const isCorrect = userAnswers[qIndex] === q.respuestaCorrecta;
-      const fb = document.createElement("div");
-      fb.className = `feedback-box ${isCorrect ? 'correct-fb' : 'incorrect-fb'}`;
-      
-      fb.innerHTML = `
-        <div class="feedback-header">
-          <i class="fa-solid ${isCorrect ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
-          <span>${isCorrect ? '¡Correcto!' : 'Incorrecto'}</span>
-        </div>
-        
-      `;
-      card.appendChild(fb);
+    // Mantener marcada la respuesta seleccionada
+    if (userAnswers[qIndex] === optIndex) {
+        btn.classList.add("selected");
     }
+
+    // Permitir seleccionar la opción
+    btn.addEventListener("click", () => {
+        handleSelectOption(qIndex, optIndex);
+    });
+
+    // Bloquear cuando termine el examen
+    if (isFinished) {
+        btn.disabled = true;
+    }
+
+    optionsDiv.appendChild(btn);
+});
+
+    card.appendChild(optionsDiv);
 
     questionsScrollContainer.appendChild(card);
   });
@@ -849,12 +846,18 @@ function handleSelectOption(qIndex, optIndex) {
 }
 
 function updateProgress() {
-  const answeredCount = userAnswers.filter(a => a !== null).length;
-  const score = userAnswers.filter((ans, idx) => ans === questions[idx].respuestaCorrecta).length;
+  const answeredCount = userAnswers.filter(
+    answer => answer !== null
+  ).length;
 
-  progressText.textContent = `Respondidas: ${answeredCount} de ${questions.length}`;
-  scoreLive.textContent = `Aciertos: ${score}`;
-  progressFill.style.width = `${(answeredCount / questions.length) * 100}%`;
+  progressText.textContent =
+    `Respondidas: ${answeredCount} de ${questions.length}`;
+
+  // No mostrar los aciertos durante el simulacro
+  scoreLive.textContent = `Simulacro en curso`;
+
+  progressFill.style.width =
+    `${(answeredCount / questions.length) * 100}%`;
 }
 
 function finishQuiz() {
