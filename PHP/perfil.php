@@ -9,7 +9,7 @@ if (!isset($_SESSION['uid'])) {
 
 $uid = (int)$_SESSION['uid'];
 
-$stmt = $conexion->prepare("SELECT name, email FROM usuarios WHERE id_Usuarios = ?");
+$stmt = $conexion->prepare("SELECT name, pass FROM usuarios WHERE id_Usuarios = ?");
 $stmt->bind_param("i", $uid);
 $stmt->execute();
 

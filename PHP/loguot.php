@@ -10,7 +10,7 @@ if (ini_get("session.use_cookies")) {
 
 session_destroy();
 
-header("location: ../Frontend/HTML/Login.html?msg=Sesión_cerrada");
+header("location: ../?msg=Sesión_cerrada");
 
 exit;
 ?>

@@ -8,7 +8,7 @@
 
     <title>Administrador | Jeonn Icfes</title>
 
-    <link rel="stylesheet" href="/Frontend User/CSS/Admin.css">
+    <link rel="stylesheet" href="../CSS/Admin.css">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,16 +46,20 @@
                 <button class="nav-link" data-seccion="usuarios">
                     <span>♙</span> Usuarios
                 </button>
-
-                <button class="nav-link" data-seccion="sitio">
-                    <span>⚙</span> Información del sitio
-                </button>
-                <a href="../index.html"><button class="nav-link" data-seccion="Jeonn">
-                    <span>←</span> Regresar a Jeonn Icfes
-                </button></a>
-
+                
             </nav>
 
+                <button class="nav-link" data-seccion="gestionar">
+                    <span>✎</span> Editar y estado
+                </button>
+
+                <button class="nav-link" data-seccion="resultados">
+                    <span>★</span> Mejores resultados
+                </button>
+
+                <button class="nav-link" data-seccion="intentos">
+                    <span>#</span> Intentos
+                </button>
             <div class="perfil-admin">
                 <div class="avatar">AD</div>
 
@@ -125,19 +129,12 @@
 
                         <button class="acceso-rapido" data-ir="modulos">
                             <span>＋</span>
-                            <div>
+                            <div>   
                                 <strong>Agregar un tema</strong>
                                 <small>Publica contenido en un módulo.</small>
                             </div>
                         </button>
 
-                        <button class="acceso-rapido" data-ir="sitio">
-                            <span>✎</span>
-                            <div>
-                                <strong>Actualizar información</strong>
-                                <small>Modifica los datos de Jeonn.</small>
-                            </div>
-                        </button>
 
                         <button class="acceso-rapido" data-ir="usuarios">
                             <span>♙</span>
@@ -275,7 +272,6 @@
                                         <th>Correo</th>
                                         <th>Rol</th>
                                         <th>Estado</th>
-                                        <th>Acción</th>
                                     </tr>
                                 </thead>
 
@@ -285,6 +281,109 @@
 
                         </div>
 
+                    </div>
+
+                </section>
+
+                <!-- EDITAR Y ESTADO -->
+                <section class="seccion" id="gestionar">
+
+                    <p class="etiqueta">GESTIÓN DE CUENTAS</p>
+                    <h1>Editar y estado</h1>
+                    <p class="descripcion">
+                        Edita los datos de un usuario o habilita e inhabilita su acceso.
+                    </p>
+
+                    <div class="panel" id="panelEditar" hidden>
+                        <h2>Editar usuario</h2>
+                        <form id="formEditar">
+                            <input type="hidden" id="editId">
+
+                            <label for="editNombre">Nombre</label>
+                            <input type="text" id="editNombre" required>
+
+                            <label for="editCorreo">Correo</label>
+                            <input type="email" id="editCorreo" required>
+
+                            <label for="editRol">Rol</label>
+                            <select id="editRol">
+                                <option value="usuario">Usuario</option>
+                                <option value="admin">Administrador</option>
+                            </select>
+
+                            <button type="submit" class="btn-principal">Guardar cambios</button>
+                            <button type="button" id="cancelarEditar" class="btn-secundario">Cancelar</button>
+                            <p id="mensajeEditar" class="mensaje"></p>
+                        </form>
+                    </div>
+
+                    <div class="panel">
+                        <div class="tabla-contenedor">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Correo</th>
+                                        <th>Rol</th>
+                                        <th>Estado</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaGestion"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- MEJORES RESULTADOS -->
+                <section class="seccion" id="resultados">
+
+                    <p class="etiqueta">SIMULACROS</p>
+                    <h1>Mejores resultados</h1>
+                    <p class="descripcion">
+                        El mejor porcentaje de cada usuario en cada simulacro.
+                    </p>
+
+                    <div class="panel">
+                        <div class="tabla-contenedor">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Simulacro</th>
+                                        <th>Mejor resultado (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaResultados"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- INTENTOS -->
+                <section class="seccion" id="intentos">
+
+                    <p class="etiqueta">SIMULACROS</p>
+                    <h1>Número de intentos</h1>
+                    <p class="descripcion">
+                        Cuántas veces ha presentado cada usuario cada simulacro.
+                    </p>
+
+                    <div class="panel">
+                        <div class="tabla-contenedor">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Simulacro</th>
+                                        <th>Intentos</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaIntentos"></tbody>
+                            </table>
+                        </div>
                     </div>
 
                 </section>
@@ -398,7 +497,7 @@
     
 
 
-    <script src="/Frontend User/JS/Admin.js"></script>
+    <script src="../JS/Admin.js"></script>
 
 </body>
 </html>

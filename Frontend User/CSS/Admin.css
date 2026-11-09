@@ -691,3 +691,17 @@ footer {
         font-size: 12px;
     }
 }
+
+
+[hidden] {
+    display: none !important;
+}
+
+td button + button {
+    margin-left: 6px;
+}
+
+td .btn-secundario {
+    padding: 8px 10px;
+    font-size: 10px;
+}

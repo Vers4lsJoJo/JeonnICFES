@@ -27,7 +27,7 @@ switch (msg) {
         alerta.className = "alerta-exito";
         break;
     case "mal":
-        alerta.textContent = "Usuario o contraseña incorrectos";
+        alerta.textContent = "Correo  o contraseña incorrectos";
         alerta.className = "alerta-error";
         break;
     case "pass_corta":

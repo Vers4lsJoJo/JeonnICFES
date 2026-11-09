@@ -93,13 +93,12 @@ body {
   display: flex;
   align-items: center;
   padding: 0 30px;
-  width: 38%;
   height: 80px;
   border-radius: 50px;
   border: 1px solid rgba(127, 163, 232, 0.35); 
   background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(220,231,249,0.55));
   margin: 15px 0;
-  left: 48%;
+  left: 50%;
   transform: translateX(-50%);
   box-shadow:
     0 8px 20px rgba(63, 98, 166, 0.18),
@@ -116,15 +115,18 @@ body {
     color: #4375d8;
     font-weight: 600;
     font-size: 20px;
+    margin-right: auto;
+    margin-left: -10%;
 }
 
 .nav-link{
   display: flex;
   list-style: none;
   gap: 2rem; 
+    font-size: 20px;
   margin-left: 10%;
-  font-size: 20px;
-}
+  white-space: nowrap;
+  padding: 0;}
 
 .nav-botones {
   display: flex;
@@ -1217,10 +1219,11 @@ body {
 }
 
 .lineas {
-    width: 700px;
+    width: 900px;
     height: 400px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-shrink: 0;
     margin-left: 10%;
     border-radius: 30px;
     background-image: url("data:image/svg+xml,%3csvg width='90%25' height='90%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='40' ry='45' stroke='black' stroke-width='2' stroke-dasharray='16%2c 14' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
@@ -1413,6 +1416,77 @@ body {
     height: 55px;
     border-radius: 20%;
     background-color: #0426ff32;
+    transform: translateY(-23px);
+    margin-inline-start: 10%;
+}
+
+
+.parte-sociales {
+    width: 250px;
+    height: 170px;
+    border-radius: 10px;
+    background-color: white;
+    border: 0.1px solid black;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.lineas .parte-mate {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    margin-left: 20px;
+}
+
+.lineas .parte-ingles {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+.lineas .parte-ciencias {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    margin-left: 20px;
+}
+
+.lineas .parte-lectura {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+.boton-rojo-1 {
+    width: 150px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    background-color: #e53935;
+    color: white;
+    font-size: 20px;
+    margin-left: 22%;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+.icono-sociales {
+    margin-left: 13%;
+    transform: translateY(28px);
+}
+
+.cuadro-sociales-1 {
+    width: 55px;
+    height: 55px;
+    border-radius: 20%;
+    background-color: #e5393552;
     transform: translateY(-23px);
     margin-inline-start: 10%;
 }
@@ -1752,3 +1826,66 @@ a, a:hover, a:visited, a:active {
   opacity: 1;
   position: relative;
 }
+
+.Parte-cuadros {
+    margin-left: 40%;
+}
+
+.lineas {
+    width: 650px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    grid-template-columns: 210px 1fr 210px;
+    grid-template-rows: repeat(2, 170px);
+    row-gap: 15px;
+    align-content: center;
+}
+
+.lineas .parte-mate,
+.lineas .parte-ingles,
+.lineas .parte-ciencias,
+.lineas .parte-lectura,
+.lineas .parte-sociales {
+    position: relative;
+    box-sizing: border-box;
+    width: 160px;
+    height: 150px;
+    margin: 0;
+    transform: none;
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    justify-content: start;
+    align-content: center;
+    row-gap: 12px;
+    padding: 0 18px;
+}
+
+.lineas .parte-mate { grid-column: 1; grid-row: 1; }
+.lineas .parte-ciencias { grid-column: 1; grid-row: 2; }
+.lineas .parte-ingles { grid-column: 3; grid-row: 1; }
+.lineas .parte-lectura { grid-column: 3; grid-row: 2; }
+.lineas .parte-sociales { grid-column: 2; grid-row: 1 / 3; align-self: center; justify-self: center; }
+
+.lineas [class^="icono-"],
+.lineas [class^="cuadro-"] {
+    grid-column: 1;
+    grid-row: 1;
+    place-self: center;
+    margin: 0;
+    transform: none;
+}
+
+.lineas h4 {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    transform: none;
+}
+
+.lineas .barra-naranja-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+} 

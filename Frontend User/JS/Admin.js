@@ -7,7 +7,6 @@
 const CLAVES = {
     temas: "jeonn_temas",
     usuarios: "jeonn_usuarios",
-    sitio: "jeonn_sitio"
 };
 
 // DATOS DE EJEMPLO
@@ -66,13 +65,6 @@ const usuariosIniciales = [
     }
 ];
 
-const sitioInicial = {
-    nombre: "Jeonn Icfes",
-    frase: "Aprende, practica y alcanza tus metas.",
-    descripcion: "Una plataforma educativa creada para acompañar a estudiantes de décimo y undécimo grado en su preparación para las pruebas ICFES.",
-    correo: "contacto@jeonn.com"
-};
-
 // LEER DATOS GUARDADOS
 function cargarDatos(clave, datosIniciales) {
 
@@ -93,11 +85,9 @@ function guardarDatos(clave, datos) {
 }
 
 // VARIABLES
-let temas = cargarDatos(CLAVES.temas, temasIniciales);
+let temas = [];
 
-let usuarios = cargarDatos(CLAVES.usuarios, usuariosIniciales);
-
-let informacion = cargarDatos(CLAVES.sitio, sitioInicial);
+let usuarios = [];
 
 let usuarioPendiente = null;
 
@@ -172,10 +162,17 @@ function actualizarEstadisticas() {
     document.getElementById("cantidadTemas").textContent = temas.length;
 }
 
+const ERRORES_TEMA = {
+    datos_invalidos: "Completa el nombre, el módulo y la descripción.",
+    archivo_no_permitido: "Ese tipo de archivo no está permitido.",
+    archivo_grande: "El archivo pesa más de 5 MB.",
+    error_subida: "No se pudo subir el archivo."
+};
 
-// =====================================
-// MÓDULOS Y TEMAS
-// =====================================
+function avisoTema(texto, esError) {
+    document.getElementById("mensajeTema").style.color = esError ? "#d46a6a" : "";
+    mostrarMensaje("mensajeTema", texto);
+}
 
 const formularioTema = document.getElementById("formTema");
 
@@ -183,49 +180,40 @@ formularioTema.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    const titulo = document.getElementById("tituloTema").value.trim();
-
-    const modulo = document.getElementById("moduloTema").value;
-
-    const descripcion = document.getElementById("descripcionTema").value.trim();
+    const datos = new FormData();
+    datos.append("titulo", document.getElementById("tituloTema").value.trim());
+    datos.append("modulo", document.getElementById("moduloTema").value);
+    datos.append("descripcion", document.getElementById("descripcionTema").value.trim());
 
     const archivo = document.getElementById("archivoTema").files[0];
+    if (archivo) datos.append("archivo", archivo);
 
-    if (!titulo || !modulo || !descripcion) {
-        return;
-    }
-
-    const nuevoTema = {
-
-        id: Date.now(),
-
-        titulo: titulo,
-
-        modulo: modulo,
-
-        descripcion: descripcion,
-
-        archivo: archivo ? archivo.name : ""
-
-    };
-
-    temas.unshift(nuevoTema);
-
-    guardarDatos(CLAVES.temas, temas);
-
-    mostrarTemas();
-
-    formularioTema.reset();
-
-    mostrarMensaje(
-        "mensajeTema",
-        "¡El tema se agregó correctamente!"
-    );
+    fetch(API + "admin_tema_crear.php", { method: "POST", body: datos })
+        .then(res => res.json())
+        .then(r => {
+            if (r.ok) {
+                formularioTema.reset();
+                cargarTemas();
+                avisoTema("¡El tema se agregó correctamente!", false);
+            } else {
+                avisoTema(ERRORES_TEMA[r.msg] || "No se pudo guardar el tema.", true);
+            }
+        })
+        .catch(() => avisoTema("No se pudo guardar el tema.", true));
 
 });
 
+function cargarTemas() {
+    pedir("admin_temas.php").then(lista => {
+        if (lista.error) {
+            window.location.href = "../../Frontend/HTML/Login.html";
+            return;
+        }
+        temas = lista;
+        mostrarTemas();
+    });
+}
 
-// MOSTRAR TODOS LOS TEMAS
 function mostrarTemas() {
 
     const lista = document.getElementById("listaTemas");
@@ -233,34 +221,32 @@ function mostrarTemas() {
     lista.innerHTML = "";
 
     if (temas.length === 0) {
-
-        lista.innerHTML = `
-            <p class="vacio">
-                Todavía no hay temas registrados.
-            </p>
-        `;
-
+        lista.innerHTML = `<p class="vacio">Todavía no hay temas registrados.</p>`;
         actualizarEstadisticas();
-
         return;
     }
 
     temas.forEach(tema => {
 
         const tarjeta = document.createElement("article");
-
         tarjeta.className = "tema";
 
         const informacionTema = document.createElement("div");
-
         informacionTema.className = "tema-info";
 
         const titulo = document.createElement("h3");
         titulo.textContent = tema.titulo;
 
         const modulo = document.createElement("small");
-        modulo.textContent = tema.modulo +
-            (tema.archivo ? " · " + tema.archivo : "");
+        modulo.textContent = tema.modulo + " ";
+
+        if (tema.archivo) {
+            const enlace = document.createElement("a");
+            enlace.href = "../../Archivos/temas/" + encodeURIComponent(tema.archivo);
+            enlace.target = "_blank";
+            enlace.textContent = "· " + tema.archivo_nombre;
+            modulo.append(enlace);
+        }
 
         const descripcion = document.createElement("p");
         descripcion.textContent = tema.descripcion;
@@ -268,30 +254,24 @@ function mostrarTemas() {
         informacionTema.append(titulo, modulo, descripcion);
 
         const botonEliminar = document.createElement("button");
-
         botonEliminar.className = "btn-eliminar-tema";
-
         botonEliminar.textContent = "Eliminar";
 
         botonEliminar.addEventListener("click", () => {
 
-            const confirmar = confirm(
-                `¿Deseas eliminar el tema "${tema.titulo}"?`
-            );
+            if (!confirm(`¿Deseas eliminar el tema "${tema.titulo}"?`)) return;
 
-            if (confirmar) {
-
-                temas = temas.filter(item => item.id !== tema.id);
-
-                guardarDatos(CLAVES.temas, temas);
-
-                mostrarTemas();
-            }
+            pedir("admin_tema_eliminar.php", { id: tema.id }).then(r => {
+                if (r.ok) {
+                    cargarTemas();
+                } else {
+                    alert("No se pudo eliminar el tema.");
+                }
+            });
 
         });
 
         tarjeta.append(informacionTema, botonEliminar);
-
         lista.appendChild(tarjeta);
 
     });
@@ -299,120 +279,178 @@ function mostrarTemas() {
     actualizarEstadisticas();
 }
 
-
 // =====================================
 // GESTIÓN DE USUARIOS
 // =====================================
 
+function celda(texto) {
+    const td = document.createElement("td");
+    td.textContent = texto;
+    return td;
+}
+
+function insignia(activo) {
+    const span = document.createElement("span");
+    span.className = activo ? "estado-usuario" : "estado-usuario estado-inactivo";
+    span.textContent = activo ? "Activo" : "Acceso retirado";
+
+    const td = document.createElement("td");
+    td.append(span);
+    return td;
+}
+
 function mostrarUsuarios(filtro = "") {
-
     const tabla = document.getElementById("tablaUsuarios");
-
     tabla.innerHTML = "";
 
-    const encontrados = usuarios.filter(usuario => {
-
-        const texto = `${usuario.nombre} ${usuario.correo}`.toLowerCase();
-
-        return texto.includes(filtro.toLowerCase());
-
-    });
+    const encontrados = usuarios.filter(u =>
+        `${u.nombre} ${u.correo}`.toLowerCase().includes(filtro.toLowerCase())
+    );
 
     if (encontrados.length === 0) {
-
-        tabla.innerHTML = `
-            <tr>
-                <td colspan="5">No se encontraron usuarios.</td>
-            </tr>
-        `;
-
+        tabla.innerHTML = `<tr><td colspan="4">No se encontraron usuarios.</td></tr>`;
         return;
     }
 
-    encontrados.forEach(usuario => {
-
+    encontrados.forEach(u => {
         const fila = document.createElement("tr");
+        fila.append(celda(u.nombre), celda(u.correo), celda(u.rol), insignia(u.activo));
+        tabla.append(fila);
+    });
+}
 
-        const celdaNombre = document.createElement("td");
-        celdaNombre.textContent = usuario.nombre;
+function mostrarGestion() {
+    const tabla = document.getElementById("tablaGestion");
+    tabla.innerHTML = "";
 
-        const celdaCorreo = document.createElement("td");
-        celdaCorreo.textContent = usuario.correo;
+    usuarios.forEach(u => {
+        const fila = document.createElement("tr");
+        const acciones = document.createElement("td");
 
-        const celdaRol = document.createElement("td");
-        celdaRol.textContent = usuario.rol;
+        const botonEditar = document.createElement("button");
+        botonEditar.textContent = "Editar";
+        botonEditar.className = "btn-secundario";
+        botonEditar.addEventListener("click", () => abrirEdicion(u));
 
-        const celdaEstado = document.createElement("td");
+        const botonEstado = document.createElement("button");
 
-        const estado = document.createElement("span");
-
-        estado.className = usuario.activo
-            ? "estado-usuario"
-            : "estado-usuario estado-inactivo";
-
-        estado.textContent = usuario.activo
-            ? "Activo"
-            : "Acceso retirado";
-
-        celdaEstado.appendChild(estado);
-
-        const celdaAccion = document.createElement("td");
-
-        const boton = document.createElement("button");
-
-        if (usuario.activo) {
-
-            boton.textContent = "Retirar acceso";
-            boton.className = "btn-retirar";
-
-            boton.addEventListener("click", () => {
-
-                usuarioPendiente = usuario.id;
-
+        if (u.activo) {
+            botonEstado.textContent = "Retirar acceso";
+            botonEstado.className = "btn-retirar";
+            botonEstado.addEventListener("click", () => {
+                usuarioPendiente = u.id;
                 document.getElementById("mensajeConfirmacion").textContent =
-                    `¿Deseas retirar el acceso de ${usuario.nombre}?`;
-
-                document.getElementById("modalConfirmacion")
-                    .classList.add("abierto");
-
+                    `¿Deseas retirar el acceso de ${u.nombre}?`;
+                document.getElementById("modalConfirmacion").classList.add("abierto");
             });
-
         } else {
-
-            boton.textContent = "Reactivar";
-            boton.className = "btn-reactivar";
-
-            boton.addEventListener("click", () => {
-
-                usuario.activo = true;
-
-                guardarDatos(CLAVES.usuarios, usuarios);
-
-                mostrarUsuarios(
-                    document.getElementById("buscarUsuario").value
-                );
-
-                actualizarEstadisticas();
-
-            });
-
+            botonEstado.textContent = "Reactivar";
+            botonEstado.className = "btn-reactivar";
+            botonEstado.addEventListener("click", () => cambiarEstado(u.id, 1));
         }
 
-        celdaAccion.appendChild(boton);
-
-        fila.append(
-            celdaNombre,
-            celdaCorreo,
-            celdaRol,
-            celdaEstado,
-            celdaAccion
-        );
-
-        tabla.appendChild(fila);
-
+        acciones.append(botonEditar, botonEstado);
+        fila.append(celda(u.nombre), celda(u.correo), celda(u.rol), insignia(u.activo), acciones);
+        tabla.append(fila);
     });
-
 }
+
+const API = "../../PHP/";
+
+function pedir(archivo, datos) {
+    const opciones = datos ? { method: "POST", body: new URLSearchParams(datos) } : {};
+    return fetch(API + archivo, opciones).then(res => res.json());
+}
+
+function cargarUsuarios() {
+    pedir("admin_usuarios.php").then(lista => {
+        if (lista.error) {
+            window.location.href = "../../Frontend/HTML/Login.html";
+            return;
+        }
+
+        usuarios = lista.map(u => ({
+            id: Number(u.id),
+            nombre: u.name,
+            correo: u.email,
+            rol: u.rol,
+            activo: u.activo == 1
+        }));
+
+        mostrarUsuarios(document.getElementById("buscarUsuario").value);
+        mostrarGestion();
+        actualizarEstadisticas();
+    });
+}
+
+function cambiarEstado(id, activo) {
+    pedir("admin_estado.php", { id: id, activo: activo }).then(r => {
+        if (r.ok) {
+            cargarUsuarios();
+        } else {
+            alert(r.msg === "no_puedes_inhabilitarte"
+                ? "No puedes retirar tu propio acceso."
+                : "No se pudo cambiar el estado.");
+        }
+    });
+}
+
+function abrirEdicion(u) {
+    document.getElementById("editId").value = u.id;
+    document.getElementById("editNombre").value = u.nombre;
+    document.getElementById("editCorreo").value = u.correo;
+    document.getElementById("editRol").value = u.rol;
+    document.getElementById("mensajeEditar").textContent = "";
+    document.getElementById("panelEditar").hidden = false;
+    document.getElementById("panelEditar").scrollIntoView({ behavior: "smooth" });
+}
+
+document.getElementById("cancelarEditar").addEventListener("click", () => {
+    document.getElementById("panelEditar").hidden = true;
+});
+
+document.getElementById("formEditar").addEventListener("submit", e => {
+    e.preventDefault();
+    const mensaje = document.getElementById("mensajeEditar");
+    mensaje.style.color = "#d46a6a";
+
+    pedir("admin_editar.php", {
+        id: document.getElementById("editId").value,
+        name: document.getElementById("editNombre").value,
+        email: document.getElementById("editCorreo").value,
+        rol: document.getElementById("editRol").value
+    })
+    .then(r => {
+        if (r.ok) {
+            document.getElementById("panelEditar").hidden = true;
+            cargarUsuarios();
+        } else {
+            mensaje.textContent = "No se pudo guardar. Revisa los datos.";
+        }
+    })
+    .catch(() => {
+        mensaje.textContent = "No se pudo guardar. Puede que el correo ya esté en uso.";
+    });
+});
+
+function cargarTabla(archivo, idTbody, columnas) {
+    pedir(archivo).then(filas => {
+        const tbody = document.getElementById(idTbody);
+        tbody.innerHTML = "";
+
+        if (filas.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="${columnas.length}">Todavía no hay simulacros presentados.</td></tr>`;
+            return;
+        }
+
+        filas.forEach(f => {
+            const tr = document.createElement("tr");
+            columnas.forEach(c => tr.append(celda(f[c])));
+            tbody.append(tr);
+        });
+    });
+}
+
 
 
 // BUSCADOR
@@ -428,33 +466,11 @@ document.getElementById("confirmarRetiro").addEventListener("click", () => {
 
     if (usuarioPendiente === null) return;
 
-    usuarios = usuarios.map(usuario => {
-
-        if (usuario.id === usuarioPendiente) {
-
-            return {
-                ...usuario,
-                activo: false
-            };
-
-        }
-
-        return usuario;
-
-    });
-
-    guardarDatos(CLAVES.usuarios, usuarios);
-
-    mostrarUsuarios(
-        document.getElementById("buscarUsuario").value
-    );
-
-    actualizarEstadisticas();
+    cambiarEstado(usuarioPendiente, 0);
 
     cerrarModal();
 
 });
-
 
 // CANCELAR
 document.getElementById("cancelarRetiro").addEventListener("click", cerrarModal);
@@ -467,85 +483,6 @@ function cerrarModal() {
         .classList.remove("abierto");
 
 }
-
-
-// =====================================
-// INFORMACIÓN DEL SITIO
-// =====================================
-
-function cargarInformacion() {
-
-    document.getElementById("nombreSitio").value = informacion.nombre;
-
-    document.getElementById("fraseSitio").value = informacion.frase;
-
-    document.getElementById("descripcionSitio").value =
-        informacion.descripcion;
-
-    document.getElementById("correoSitio").value =
-        informacion.correo || "";
-
-    actualizarVistaPrevia();
-
-}
-
-
-// VISTA PREVIA
-function actualizarVistaPrevia() {
-
-    document.getElementById("previewNombre").textContent =
-        document.getElementById("nombreSitio").value;
-
-    document.getElementById("previewFrase").textContent =
-        document.getElementById("fraseSitio").value;
-
-    document.getElementById("previewDescripcion").textContent =
-        document.getElementById("descripcionSitio").value;
-
-}
-
-[
-    "nombreSitio",
-    "fraseSitio",
-    "descripcionSitio"
-].forEach(id => {
-
-    document.getElementById(id).addEventListener(
-        "input",
-        actualizarVistaPrevia
-    );
-
-});
-
-
-// GUARDAR INFORMACIÓN
-document.getElementById("formSitio").addEventListener("submit", event => {
-
-    event.preventDefault();
-
-    informacion = {
-
-        nombre: document.getElementById("nombreSitio").value.trim(),
-
-        frase: document.getElementById("fraseSitio").value.trim(),
-
-        descripcion: document.getElementById("descripcionSitio").value.trim(),
-
-        correo: document.getElementById("correoSitio").value.trim()
-
-    };
-
-    guardarDatos(CLAVES.sitio, informacion);
-
-    actualizarVistaPrevia();
-
-    mostrarMensaje(
-        "mensajeSitio",
-        "¡La información se guardó correctamente!"
-    );
-
-});
-
 
 // =====================================
 // MENSAJES
@@ -568,13 +505,12 @@ function mostrarMensaje(id, texto) {
 // INICIALIZACIÓN
 // =====================================
 
-document.getElementById("anio").textContent =
-    new Date().getFullYear();
 
-cargarInformacion();
+cargarTemas();
 
-mostrarTemas();
+cargarUsuarios();
 
-mostrarUsuarios();
+cargarTabla("admin_resultados.php", "tablaResultados", ["name", "simulacro", "mejor"]);
 
-actualizarEstadisticas();
+cargarTabla("admin_intentos.php", "tablaIntentos", ["name", "simulacro", "intentos"]);
+

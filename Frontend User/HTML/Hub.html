@@ -18,20 +18,21 @@
         <a href="../../Frontend/HTML/Simulacros.html"><button class="btn-simulacros"><img src="../../IMG/icons8-circular-48 2.png" alt="" class="Circular"><p class="p-4">Simulacro</p></button></a>
     </section>
     <main> 
+    <details class="menu-perfil">
+    <summary>Editar perfil</summary>
     <form class="form-perfil" action="../../PHP/actualizar.php" method="POST">
     <label for="campo-nombre">Nombre</label>
     <input type="text" name="name" id="campo-nombre" required>
 
-    <label for="campo-email">Correo</label>
-    <input type="email" name="email" id="campo-email" required>
+    <label for="campo-pass">Nueva contraseña</label>
+    <input type="password" name="pass" id="campo-pass" minlength="8" required>
+
+    <label for="campo-confirm">Confirmar contraseña</label>
+    <input type="password" name="confirm-pass" id="campo-confirm" minlength="8" required>
 
     <button type="submit" class="btn-guardar">Guardar cambios</button>
     </form>
-
-    <form class="form-eliminar" action="../../PHP/eliminar.php" method="POST"
-      onsubmit="return confirm('¿Seguro? Se borrará tu cuenta y todos tus simulacros.')">
-    <button type="submit" class="btn-eliminar">Eliminar cuenta</button>
-    </form>
+    </details>
     </main>
     <script>
         fetch("../../PHP/perfil.php")
@@ -44,7 +45,6 @@
         document.getElementById("nombre").textContent = d.name;
         document.getElementById("saludo").textContent = "Hola, " + d.name;
         document.getElementById("campo-nombre").value = d.name;
-        document.getElementById("campo-email").value = d.email;
         document.getElementById("nivel").textContent = "Nivel ICFES: " + d.nivel;
     })
     .catch(err => console.error("Error al cargar perfil:", err));
