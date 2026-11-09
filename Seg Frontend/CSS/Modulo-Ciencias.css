@@ -1,3 +1,216 @@
+  .contenido-container {
+    width: 88%;
+    max-width: 1100px;
+    margin: 45px auto;
+    padding-bottom: 50px;
+    color: #263653;
+  }
+
+  .contenido-header {
+    background: linear-gradient(135deg, #4168aa, #263f70);
+    color: white;
+    padding: 35px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .contenido-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .contenido-header p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #edf3ff;
+  }
+
+  .introduccion {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  }
+
+        /* =====================================
+           COMPONENTES
+        ===================================== */
+
+.componente {
+  margin-bottom: 45px;
+}
+
+.componente-titulo {
+  background: #35558e;
+  color: white;
+  padding: 20px 25px;
+  border-radius: 13px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.componente-descripcion {
+  background: rgba(255, 255, 255, 0.88);
+  padding: 22px;
+  border-radius: 13px;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+        /* =====================================
+           TEMAS Y CONCEPTOS
+        ===================================== */
+
+.tema-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(75, 111, 165, 0.15);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tema-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.11);
+}
+
+.tema-card h3 {
+  color: #31558f;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.tema-card p {
+  color: #46546b;
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.concepto {
+  background: #edf3fc;
+  border-left: 4px solid #527bb7;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 0 10px 10px 0;
+}
+
+.concepto h4 {
+  color: #294a7c;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.concepto p {
+  margin-bottom: 0;
+}
+
+        /* =====================================
+           EJEMPLOS
+        ===================================== */
+
+.ejemplos-container {
+  margin-top: 20px;
+}
+
+.ejemplos-container > h3 {
+  color: #31558f;
+  margin-bottom: 15px;
+}
+
+.ejemplo {
+  background: #f5f7fb;
+  border: 1px solid #dce5f1;
+  padding: 18px;
+  border-radius: 11px;
+  margin-bottom: 13px;
+}
+
+.ejemplo h4 {
+  color: #345b91;
+  margin-bottom: 8px;
+}
+
+.ejemplo p {
+  margin-bottom: 0;
+}
+
+        /* =====================================
+           FÓRMULAS
+        ===================================== */
+
+.formula {
+  background: #e7eef9;
+  color: #263f70;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+        /* =====================================
+           RECOMENDACIÓN DE ESTUDIO
+        ===================================== */
+
+.nota-estudio {
+  background: #eaf1fc;
+  border-left: 5px solid #527bb7;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.nota-estudio h3 {
+  color: #294a7c;
+  margin-bottom: 10px;
+}
+
+.nota-estudio p {
+  line-height: 1.7;
+  color: #46546b;
+}
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+@media (max-width: 768px) {
+
+  .contenido-container {
+    width: 94%;
+    margin: 25px auto;
+  }
+
+  .contenido-header {
+    padding: 25px 20px;
+  }
+
+  .contenido-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .componente-titulo {
+    font-size: 1.25rem;
+    padding: 16px;
+  }
+
+  .tema-card {
+    padding: 18px;
+  }
+
+  .tema-card p {
+    text-align: left;
+  }
+}
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f9f9f9;
@@ -20,7 +233,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #6a0dad;
+  color: #cecece;
 }
 
 .subtitle {
