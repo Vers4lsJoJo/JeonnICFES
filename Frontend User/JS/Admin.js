@@ -398,7 +398,7 @@ function cambiarEstado(id, activo) {
 function abrirEdicion(u) {
     document.getElementById("editId").value = u.id;
     document.getElementById("editNombre").value = u.nombre;
-    document.getElementById("editCorreo").value = u.correo;
+    document.getElementById("editPassword").value = "";    
     document.getElementById("editRol").value = u.rol;
     document.getElementById("mensajeEditar").textContent = "";
     document.getElementById("panelEditar").hidden = false;
@@ -417,7 +417,7 @@ document.getElementById("formEditar").addEventListener("submit", e => {
     pedir("admin_editar.php", {
         id: document.getElementById("editId").value,
         name: document.getElementById("editNombre").value,
-        email: document.getElementById("editCorreo").value,
+        password: document.getElementById("editPassword").value,
         rol: document.getElementById("editRol").value
     })
     .then(r => {
@@ -505,7 +505,17 @@ function mostrarMensaje(id, texto) {
 // INICIALIZACIÓN
 // =====================================
 
+// CERRAR SESIÓN
+document.getElementById("btnCerrarSesion").addEventListener("click", () => {
 
+    if (!confirm("¿Deseas cerrar sesión?")) return;
+
+    fetch(API + "loguot.php")
+        .finally(() => {
+            window.location.href = "../../";
+        });
+
+});
 cargarTemas();
 
 cargarUsuarios();

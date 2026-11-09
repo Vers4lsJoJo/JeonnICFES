@@ -3,10 +3,10 @@ include 'solo_admin.php';
 
 $id     = (int)$_POST['id'];
 $nombre = trim($_POST['name']);
-$correo = trim($_POST['email']);
+$password = $_POST['password'] ?? '';
 $rol    = $_POST['rol'];
 
-if ($nombre === '' || !filter_var($correo, FILTER_VALIDATE_EMAIL) || !in_array($rol, ['usuario', 'admin'])) {
+if ($nombre === '' || !in_array($rol, ['usuario', 'admin']) || ($password !== '' && strlen($password) < 6)) {
     echo json_encode(['ok' => false]);
     exit;
 }
@@ -16,7 +16,12 @@ if ($id === (int)$_SESSION['uid'] && $rol !== 'admin') {
     exit;
 }
 
-$stmt = $conexion->prepare("UPDATE usuarios SET name = ?, email = ?, rol = ? WHERE id_Usuarios = ?");
-$stmt->bind_param("sssi", $nombre, $correo, $rol, $id);
-echo json_encode(['ok' => $stmt->execute()]);
-?>
+if ($password !== '') {
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = $conexion->prepare("UPDATE usuarios SET name = ?, rol = ?, password = ? WHERE id_Usuarios = ?");
+    $stmt->bind_param("sssi", $nombre, $rol, $hash, $id);
+} else {
+    $stmt = $conexion->prepare("UPDATE usuarios SET name = ?, rol = ? WHERE id_Usuarios = ?");
+    $stmt->bind_param("ssi", $nombre, $rol, $id);
+}echo json_encode(['ok' => $stmt->execute()]);
+?> 

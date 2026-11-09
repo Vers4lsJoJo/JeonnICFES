@@ -1,0 +1,211 @@
+
+/* ===== CONFIGURACIÓN GENERAL ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+.encabezado-temas {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30, 100, 180, 0.15);
+}
+
+.volver {
+    text-decoration: none;
+    color: #1764a5;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.volver:hover {
+    color: #0b3d70;
+    transform: translateX(-4px);
+}
+
+.marca {
+    color: #14558c;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+
+.contenedor-temas {
+    width: 86%;
+    max-width: 1200px;
+    margin: 50px auto;
+    min-height: 65vh;
+}
+
+/* ===== PRESENTACIÓN ===== */
+
+.presentacion {
+    padding: 35px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(30, 80, 130, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.etiqueta {
+    color: #2581c5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.presentacion h1 {
+    color: #174d79;
+    font-size: 34px;
+    margin: 12px 0;
+}
+
+.presentacion p {
+    color: #60758a;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* ===== LISTADO DE TEMAS ===== */
+
+.seccion-listado {
+    margin-top: 40px;
+}
+
+.titulo-listado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.titulo-listado h2 {
+    color: #174d79;
+    margin: 0 0 7px;
+}
+
+.titulo-listado p {
+    color: #708397;
+    margin: 0;
+}
+
+.contador {
+    background: #e1f1ff;
+    color: #1764a5;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ===== TARJETAS ===== */
+
+.lista-temas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+.tarjeta-tema {
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(60, 140, 200, 0.15);
+    box-shadow: 0 6px 18px rgba(30, 80, 130, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-tema:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(30, 80, 130, 0.15);
+}
+
+.icono-tema {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5f3ff;
+    border-radius: 14px;
+    font-size: 25px;
+    margin-bottom: 17px;
+}
+
+.tarjeta-tema h3 {
+    color: #174d79;
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+.tarjeta-tema p {
+    color: #687d91;
+    line-height: 1.6;
+    margin: 0 0 18px;
+}
+
+.archivo-tema {
+    display: inline-block;
+    color: #1675b9;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.archivo-tema:hover {
+    color: #0b3d70;
+    text-decoration: underline;
+}
+
+/* ===== MENSAJES ===== */
+
+.mensaje {
+    color: #708397;
+    text-align: center;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 16px;
+}
+
+/* ===== PIE DE PÁGINA ===== */
+
+.footer-temas {
+    text-align: center;
+    padding: 25px;
+    color: #71869a;
+    font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+    .encabezado-temas {
+        padding: 18px 5%;
+    }
+
+    .contenedor-temas {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .presentacion {
+        padding: 25px;
+    }
+
+    .presentacion h1 {
+        font-size: 27px;
+    }
+
+    .titulo-listado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,20 +45,20 @@
                 <button class="nav-link" data-seccion="usuarios">
                     <span>♙</span> Usuarios
                 </button>
-                
+
             </nav>
 
-                <button class="nav-link" data-seccion="gestionar">
-                    <span>✎</span> Editar y estado
-                </button>
+            <button class="nav-link" data-seccion="gestionar">
+                <span>✎</span> Editar y estado
+            </button>
 
-                <button class="nav-link" data-seccion="resultados">
-                    <span>★</span> Mejores resultados
-                </button>
+            <button class="nav-link" data-seccion="resultados">
+                <span>★</span> Mejores resultados
+            </button>
 
-                <button class="nav-link" data-seccion="intentos">
-                    <span>#</span> Intentos
-                </button>
+            <button class="nav-link" data-seccion="intentos">
+                <span>#</span> Intentos
+            </button>
             <div class="perfil-admin">
                 <div class="avatar">AD</div>
 
@@ -69,6 +68,9 @@
                 </div>
             </div>
 
+            <button type="button" id="btnCerrarSesion" class="btn-cerrar-sesion">
+                ⎋ Cerrar sesión
+            </button>
         </aside>
 
         <!-- CONTENIDO PRINCIPAL -->
@@ -129,7 +131,7 @@
 
                         <button class="acceso-rapido" data-ir="modulos">
                             <span>＋</span>
-                            <div>   
+                            <div>
                                 <strong>Agregar un tema</strong>
                                 <small>Publica contenido en un módulo.</small>
                             </div>
@@ -167,12 +169,7 @@
 
                             <label for="tituloTema">Nombre del tema</label>
 
-                            <input
-                                type="text"
-                                id="tituloTema"
-                                placeholder="Ej. Porcentajes"
-                                required
-                            >
+                            <input type="text" id="tituloTema" placeholder="Ej. Porcentajes" required>
 
                             <label for="moduloTema">Seleccionar módulo</label>
 
@@ -194,20 +191,12 @@
 
                             <label for="descripcionTema">Descripción del tema</label>
 
-                            <textarea
-                                id="descripcionTema"
-                                rows="4"
-                                placeholder="Escribe qué aprenderán los estudiantes..."
-                                required
-                            ></textarea>
+                            <textarea id="descripcionTema" rows="4"
+                                placeholder="Escribe qué aprenderán los estudiantes..." required></textarea>
 
                             <label for="archivoTema">Archivo de apoyo (opcional)</label>
 
-                            <input
-                                type="file"
-                                id="archivoTema"
-                                accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg"
-                            >
+                            <input type="file" id="archivoTema" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg">
 
                             <small class="ayuda">
                                 Puedes seleccionar documentos, presentaciones o imágenes.
@@ -254,11 +243,7 @@
 
                             <h2>Lista de usuarios</h2>
 
-                            <input
-                                type="search"
-                                id="buscarUsuario"
-                                placeholder="Buscar usuario..."
-                            >
+                            <input type="search" id="buscarUsuario" placeholder="Buscar usuario...">
 
                         </div>
 
@@ -302,9 +287,10 @@
                             <label for="editNombre">Nombre</label>
                             <input type="text" id="editNombre" required>
 
-                            <label for="editCorreo">Correo</label>
-                            <input type="email" id="editCorreo" required>
-
+                            <label for="editPassword">Nueva contraseña</label>
+                            <input type="password" id="editPassword" minlength="6" autocomplete="new-password">
+                            <small class="ayuda">Déjala vacía si no quieres cambiarla.</small>
+                            
                             <label for="editRol">Rol</label>
                             <select id="editRol">
                                 <option value="usuario">Usuario</option>
@@ -407,34 +393,19 @@
 
                             <label for="nombreSitio">Nombre del sitio</label>
 
-                            <input
-                                type="text"
-                                id="nombreSitio"
-                                required
-                            >
+                            <input type="text" id="nombreSitio" required>
 
                             <label for="fraseSitio">Frase principal</label>
 
-                            <input
-                                type="text"
-                                id="fraseSitio"
-                                required
-                            >
+                            <input type="text" id="fraseSitio" required>
 
                             <label for="descripcionSitio">Descripción</label>
 
-                            <textarea
-                                id="descripcionSitio"
-                                rows="5"
-                                required
-                            ></textarea>
+                            <textarea id="descripcionSitio" rows="5" required></textarea>
 
                             <label for="correoSitio">Correo de contacto</label>
 
-                            <input
-                                type="email"
-                                id="correoSitio"
-                            >
+                            <input type="email" id="correoSitio">
 
                             <button type="submit" class="btn-principal">
                                 Guardar cambios
@@ -462,7 +433,7 @@
 
             </div>
 
-            
+
 
         </main>
 
@@ -494,10 +465,11 @@
         </div>
 
     </div>
-    
+
 
 
     <script src="../JS/Admin.js"></script>
 
 </body>
+
 </html>
