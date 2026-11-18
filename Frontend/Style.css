@@ -430,13 +430,9 @@ body {
 }
 
 .next {
-    width: 450px;
-    height: 70px;
-    background-color: white;
-    border: 0.3px solid black;
-    border-radius: 10px;
-    margin-left: 65%;
-    margin-top: 4%;
+   
+    margin-left: 70%;
+    transform: translateY(-90px);
 }
 
 .cuadrado {
@@ -484,16 +480,18 @@ body {
 .close-session {
     width: 120px;
     height: 40px;
-    background-color: #16ba0037;
+    background-color: #023daaa9;
     border: 0.3px solid transparent;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
+    font-size: 15px;
+    color: blanchedalmond;
 }
 
 .close-session:hover {
-    background-color: #16ba0080;
-    border: 1px solid black;
+    background-color: #95a8ff80;
+   
 }
 
 .p-10 {
@@ -762,7 +760,7 @@ body {
     height: 20px;
     border-radius: 10px;
     background-color: rgba(255, 113, 70, 0.356);
-    color: #0f1d80;     
+    color: #f78307;     
     text-align: center;
     margin-left: 66%;
     transform: translateY(-80px);
@@ -961,7 +959,7 @@ body {
     width: 100px;
     height: 20px;
     border-radius: 10px;
-     background-color: rgba(255, 113, 70, 0.356);
+     background-color: #00b40c3f;
     color: #00b40c;
     text-align: center;
     margin-left: 68%;
