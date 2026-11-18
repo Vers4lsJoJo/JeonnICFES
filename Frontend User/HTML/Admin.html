@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Administrador | Jeonn Icfes</title>
+    <title>Administrador | Jeonn ICFES</title>
 
     <link rel="stylesheet" href="../CSS/Admin.css">
 
@@ -49,7 +49,7 @@
             </nav>
 
             <button class="nav-link" data-seccion="gestionar">
-                <span>✎</span> Editar y estado
+                <span>✎</span> Edición y estado
             </button>
 
             <button class="nav-link" data-seccion="resultados">
@@ -81,7 +81,7 @@
                 <button id="menuToggle" class="menu-toggle">☰</button>
 
                 <div class="ubicacion">
-                    Jeonn Icfes / <strong id="nombreSeccion">Resumen</strong>
+                    Jeonn ICFES / <strong id="nombreSeccion">Resumen</strong>
                 </div>
 
                 <span class="estado">
@@ -97,10 +97,9 @@
 
                     <p class="etiqueta">CENTRO DE CONTROL</p>
 
-                    <h1>¡Hola, administrador! 👋</h1>
-
+                    <h1>¡Hola, <span id="nombreAdmin">administrador</span>! 👋</h1>
                     <p class="descripcion">
-                        Gestiona los contenidos, usuarios e información de Jeonn Icfes.
+                        Gestiona los contenidos, usuarios e información de Jeonn ICFES.
                     </p>
 
                     <div class="estadisticas">
@@ -118,11 +117,10 @@
                         </div>
 
                         <div class="tarjeta">
-                            <span>Módulos</span>
-                            <h2>5</h2>
-                            <small>Áreas de aprendizaje</small>
+                            <span>Usuarios totales</span>
+                            <h2 id="usuariosTotales">0</h2>
+                            <small>Incluye cuentas inhabilitadas</small>
                         </div>
-
                     </div>
 
                     <div class="panel">
@@ -158,7 +156,7 @@
                     <h1>Módulos y temas</h1>
 
                     <p class="descripcion">
-                        Agrega nuevos temas para los estudiantes de Jeonn Icfes.
+                        Agrega nuevos temas para los estudiantes de Jeonn ICFES.
                     </p>
 
                     <div class="panel">
@@ -234,7 +232,7 @@
                     <h1>Usuarios registrados</h1>
 
                     <p class="descripcion">
-                        Consulta y administra los usuarios de Jeonn Icfes.
+                        Consulta y administra los usuarios de Jeonn ICFES.
                     </p>
 
                     <div class="panel">
@@ -274,7 +272,7 @@
                 <section class="seccion" id="gestionar">
 
                     <p class="etiqueta">GESTIÓN DE CUENTAS</p>
-                    <h1>Editar y estado</h1>
+                    <h1>Edición y estado</h1>
                     <p class="descripcion">
                         Edita los datos de un usuario o habilita e inhabilita su acceso.
                     </p>
@@ -290,7 +288,7 @@
                             <label for="editPassword">Nueva contraseña</label>
                             <input type="password" id="editPassword" minlength="6" autocomplete="new-password">
                             <small class="ayuda">Déjala vacía si no quieres cambiarla.</small>
-                            
+
                             <label for="editRol">Rol</label>
                             <select id="editRol">
                                 <option value="usuario">Usuario</option>
@@ -382,7 +380,7 @@
                     <h1>Información del sitio</h1>
 
                     <p class="descripcion">
-                        Actualiza la información general de Jeonn Icfes.
+                        Actualiza la información general de Jeonn ICFES.
                     </p>
 
                     <div class="panel">
@@ -421,7 +419,7 @@
 
                         <p class="etiqueta">VISTA PREVIA</p>
 
-                        <h2 id="previewNombre">Jeonn Icfes</h2>
+                        <h2 id="previewNombre">Jeonn ICFES</h2>
 
                         <h3 id="previewFrase">Aprende, practica y alcanza tus metas.</h3>
 

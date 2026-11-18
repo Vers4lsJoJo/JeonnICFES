@@ -7,11 +7,11 @@ switch (msg) {
         alerta.className = "alerta-exito";
         break;
     case "error":
-        alerta.textContent = "Error al registrar intente nuevamente o regresa mas tarde";
+        alerta.textContent = "Error al registrar. Inténtalo de nuevo o vuelve más tarde.";
         alerta.className = "alerta-error";
         break;
     case "no_coinciden":
-        alerta.textContent = "las contraseñas no coinciden";
+        alerta.textContent = "Las contraseñas no coinciden.";
         alerta.className = "alerta-pass";
         break;
     case "correo_invalido":
@@ -27,7 +27,7 @@ switch (msg) {
         alerta.className = "alerta-exito";
         break;
     case "mal":
-        alerta.textContent = "Correo  o contraseña incorrectos";
+        alerta.textContent = "Correo o contraseña incorrectos.";
         alerta.className = "alerta-error";
         break;
     case "pass_corta":

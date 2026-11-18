@@ -684,8 +684,8 @@ body {
     width: 100px;
     height: 20px;
     border-radius: 10px;
-    background-color: rgba(255, 2, 2, 0.356);
-    color: #ff0000;
+     background-color: rgba(255, 113, 70, 0.356);
+    color: #f78307;
     text-align: center;
     margin-left: 66%;
     transform: translateY(-80px);
@@ -761,8 +761,8 @@ body {
     width: 100px;
     height: 20px;
     border-radius: 10px;
-    background-color: rgba(2, 255, 48, 0.356);
-    color: #00b40c;
+    background-color: rgba(255, 113, 70, 0.356);
+    color: #0f1d80;     
     text-align: center;
     margin-left: 66%;
     transform: translateY(-80px);
@@ -961,7 +961,7 @@ body {
     width: 100px;
     height: 20px;
     border-radius: 10px;
-    background-color: rgba(2, 255, 48, 0.148);
+     background-color: rgba(255, 113, 70, 0.356);
     color: #00b40c;
     text-align: center;
     margin-left: 68%;
@@ -1136,7 +1136,7 @@ body {
     width: 100px;
     height: 20px;
     border-radius: 10px;
-    background-color: #e057573c;
+     background-color: rgba(255, 113, 70, 0.356);
     color: #E05757;
     text-align: center;
     margin-left: 68%;
@@ -1620,8 +1620,8 @@ body {
 .p-45 {
     font-size: 23px;
     margin-left: 28%;
-    color: #0000007f;
-    font-weight: 300;
+    color: rgba(0, 0, 0, 0.674);
+    font-weight: 900;
 }
 
 .cuatro-pasos-1 {

@@ -158,7 +158,7 @@ function actualizarEstadisticas() {
 
     document.getElementById("totalUsuarios").textContent =
         usuarios.filter(usuario => usuario.activo).length;
-
+        document.getElementById("usuariosTotales").textContent = usuarios.length;
     document.getElementById("cantidadTemas").textContent = temas.length;
 }
 
@@ -429,7 +429,7 @@ document.getElementById("formEditar").addEventListener("submit", e => {
         }
     })
     .catch(() => {
-        mensaje.textContent = "No se pudo guardar. Puede que el correo ya esté en uso.";
+        mensaje.textContent = "No se pudo guardar. Inténtalo de nuevo.";
     });
 });
 
@@ -516,6 +516,11 @@ document.getElementById("btnCerrarSesion").addEventListener("click", () => {
         });
 
 });
+
+pedir("admin_perfil.php").then(p => {
+    if (p.name) document.getElementById("nombreAdmin").textContent = p.name;
+});
+
 cargarTemas();
 
 cargarUsuarios();
