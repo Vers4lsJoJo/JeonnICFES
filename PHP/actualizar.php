@@ -7,7 +7,6 @@ if (!isset($_SESSION['uid']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $uid    = (int)$_SESSION['uid'];
-$nombre = trim($_POST['name']);
 $pass      = trim($_POST['pass']);
 $confirmar = trim($_POST['confirm-pass']);
 
@@ -20,8 +19,8 @@ if ($pass !== $confirmar) {
     header("Location: ../Frontend%20User/HTML/Hub.html?msg=no_coinciden");
     exit;
 }
-$stmt = $conexion->prepare("UPDATE usuarios SET name = ?, pass = ? WHERE id_Usuarios = ?");
-$stmt->bind_param("ssi", $nombre, $pass, $uid);
+$stmt = $conexion->prepare("UPDATE usuarios SET pass = ? WHERE id_Usuarios = ?");
+$stmt->bind_param("ssi", $pass, $uid);
 if ($stmt->execute()) {
     header("Location: ../Frontend%20User/HTML/Hub.html?msg=actualizado");
 } else {
