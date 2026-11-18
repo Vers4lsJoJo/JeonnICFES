@@ -77,7 +77,7 @@
             <div class="cuadro-ingles"></div>
             <div class="Intermedio-3">ICFES</div>
             <h2 class="p-28">Inglés</h2>
-                <p class="p-29">Reading comprehension, grammar y vocabulary en contexto.</p>
+                <p class="p-29">Reading comprehension, grammar <br> y vocabulary en contexto.</p>
                 <h6 class="p-31"></h6>
                 <a href="../../Seg Frontend/HTML/Ingles/Modulo-Ingles.html" class="a-5">Practicar</a>
         </section>
@@ -134,27 +134,17 @@
        
     </footer>
         <script>
-      fetch("../../PHP/resumen.php")
-        .then((res) => res.json())
-        .then((datos) => {
-          document.getElementById("num-proceso").textContent = datos.en_proceso;
-          document.getElementById("num-completos").textContent =
-
-            datos.completos;
-
-                    fetch("../../PHP/perfil.php")
+        
+      fetch("../../PHP/perfil.php")
     .then(res => res.json())
     .then(d => {
-        if (d.error) {
-            window.location.href = "../../Frontend/HTML/Login.html";
-            return;
-        }
-        document.getElementById("nombre").textContent = "Hola " + d.name;
+      if (d.error) {
+        window.location.href = "../../Frontend/HTML/Login.html";
+        return;
+      }
+      document.getElementById("nombre").textContent = "Hola " + d.name;
     })
     .catch(err => console.error("Error al cargar perfil:", err));
-
-        })
-        .catch((err) => console.error("Error al cargar simulacros:", err));
     </script>
   </body>
 

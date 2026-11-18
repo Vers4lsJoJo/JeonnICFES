@@ -124,15 +124,6 @@
   
     </footer>
     <script>
-      fetch("../../PHP/resumen.php")
-        .then((res) => res.json())
-        .then((datos) => {
-          document.getElementById("num-proceso").textContent = datos.en_proceso;
-          document.getElementById("num-completos").textContent =
-            datos.completos;
-        })
-        .catch((err) => console.error("Error al cargar simulacros:", err));
-        
       fetch("../../PHP/perfil.php")
     .then(res => res.json())
     .then(d => {
