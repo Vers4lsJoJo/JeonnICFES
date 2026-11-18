@@ -34,18 +34,16 @@
     </main>
     <script>
         fetch("../../PHP/perfil.php")
-    .then(res => res.json())
-    .then(d => {
-        if (d.error) {
-            window.location.href = "../../Frontend/HTML/Login.html";
-            return;
-        }
+        .then(res => res.json())
+        .then(d => {
+            if (d.error) {
+                window.location.href = "../../Frontend/HTML/Login.html";
+                return;
+            }
         document.getElementById("nombre").textContent = d.name;
         document.getElementById("saludo").textContent = "Hola, " + d.name;
-        document.getElementById("campo-nombre").value = d.name;
         document.getElementById("nivel").textContent = "Nivel ICFES: " + d.nivel;
     })
-    .catch(err => console.error("Error al cargar perfil:", err));
-    </script>
+    .catch(err => console.error("Error al cargar perfil:", err));    </script>
 </body>
 </html>
